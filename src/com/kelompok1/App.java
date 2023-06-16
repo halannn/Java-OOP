@@ -1,11 +1,14 @@
 package com.kelompok1;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    public static Dotenv dotenv;
+
     @Override
     public void start(Stage stage) throws Exception {
         StackPane root = new StackPane();
@@ -15,6 +18,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        dotenv = Dotenv.load();
         launch(args);
     }
 }

@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DB {
-    private static final String url = "jdbc:mysql://localhost:3306/mysql";
-    private static final String user = "undeadevs";
-    private static final String password = "BulbasaurIsMyFavPokemonStarter";
+    private static final String url = "jdbc:mysql://"
+            + App.dotenv.get("MYSQL_HOST", "localhost") + ":"
+            + App.dotenv.get("MYSQL_PORT", "3306") + "/"
+            + App.dotenv.get("MYSQL_DB", "tubes_pbo_sia");
+    private static final String user = App.dotenv.get("MYSQL_USERNAME", "root");
+    private static final String password = App.dotenv.get("MYSQL_PASSWORD", "");
 
     private static Connection conn;
 
@@ -24,7 +27,7 @@ public class DB {
         conn.close();
     }
 
-    public static PreparedStatement prepareStatement(String query) throws SQLException{
+    public static PreparedStatement prepareStatement(String query) throws SQLException {
         return conn.prepareStatement(query);
     }
 }
