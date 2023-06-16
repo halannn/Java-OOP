@@ -6,3 +6,4 @@ Project ini dibuat untuk Tugas Besar Pemrograman Berbasis Objek. Project ini dib
 Dependencies List:
 - JavaFX SDK | 20.0.1
 - MySQL Connector | v8.0.33
+- argon2-jvm | v2.11

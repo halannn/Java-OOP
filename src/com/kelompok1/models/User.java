@@ -2,6 +2,8 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 
 import com.kelompok1.DB;
 
@@ -36,15 +38,17 @@ enum UserStatus {
 public class User {
     private int id;
     private String username;
-    private String password;
+    private String hashedPassword;
     private int idPerusahaan;
     private int idRole;
     private UserStatus status;
 
-    public User(String username, String password, int idPerusahaan, int idRole, UserStatus status) {
+    private static Argon2 argon2 = Argon2Factory.create();
+
+    public User(String username, String hashedPassword, int idPerusahaan, int idRole, UserStatus status) {
         this.id = -1;
         this.username = username;
-        this.password = password;
+        this.hashedPassword = hashedPassword;
         this.idPerusahaan = idPerusahaan;
         this.idRole = idRole;
         this.status = status;
@@ -149,5 +153,18 @@ public class User {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean verifyPassword(String password) {
+        char[] passwordChars = password.toCharArray();
+        boolean verified = false;
+        try {
+            verified = argon2.verify(this.hashedPassword, passwordChars);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            argon2.wipeArray(passwordChars);
+        }
+        return verified;
     }
 }
