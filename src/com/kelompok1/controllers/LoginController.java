@@ -35,21 +35,21 @@ public class LoginController {
 
     public void signIn(ActionEvent event) throws Exception {
 
-        if (username.getText() == ""){
+        if (username.getText().equals("")){
             Alert alt = new Alert(AlertType.ERROR);
-            alt.setContentText("username tidak boleh kosong");
+            alt.setContentText("Username tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if (password.getText() == ""){
+        if (password.getText().equals("")){
             Alert alt = new Alert(AlertType.ERROR);
-            alt.setContentText("password tidak boleh kosong");
+            alt.setContentText("Password tidak boleh kosong");
             alt.showAndWait();
             return;
         }
         
 
-        Parent root = FXMLLoader.load(App.class.getResource("./views/MainScene.fxml"));
+        Parent root = FXMLLoader.load(App.class.getResource("./views/MainDesktop.fxml"));
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

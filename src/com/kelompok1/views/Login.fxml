@@ -26,7 +26,7 @@
             <Insets top="41.0" />
          </VBox.margin>
       </Label>
-      <TextField id="username" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="682.0" promptText="Enter Username" style="-fx-background-color: DAD7CD; -fx-background-radius: 20;">
+      <TextField fx:id="username" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="682.0" promptText="Enter Username" style="-fx-background-color: DAD7CD; -fx-background-radius: 20;">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -34,7 +34,7 @@
             <Insets left="260.0" right="260.0" top="41.0" />
          </VBox.margin>
       </TextField>
-      <PasswordField id="password" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="682.0" promptText="Password" style="-fx-background-color: DAD7CD; -fx-background-radius: 20;">
+      <PasswordField fx:id="password" maxWidth="1.7976931348623157E308" prefHeight="118.0" prefWidth="682.0" promptText="Password" style="-fx-background-color: DAD7CD; -fx-background-radius: 20;">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -42,7 +42,7 @@
             <Insets left="260.0" right="260.0" top="62.0" />
          </VBox.margin>
       </PasswordField>
-      <Label id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
+      <Label fx:id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
          <font>
             <Font size="20.0" />
          </font>
@@ -53,7 +53,7 @@
             <Insets right="259.0" />
          </padding>
       </Label>
-      <Button id="signInBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToMain" prefHeight="118.0" prefWidth="682.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="Sign In" textFill="WHITE">
+      <Button fx:id="signInBtn" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" prefHeight="118.0" prefWidth="682.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="Sign In" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
