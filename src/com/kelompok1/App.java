@@ -35,4 +35,5 @@ public class App extends Application {
         dotenv = Dotenv.load();
         launch(args);
     }
+    
 }
