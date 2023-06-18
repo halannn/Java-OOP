@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
+         <content>
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
+               <children>
+                  <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Informasi Akutansi" wrappingWidth="156.97190856933594">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Label text="Home">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="22.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Transaksi" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Pemasukan Tunai" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Pengeluaran Tunai" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Tambah Hutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Bayar Hutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Tambah Piutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Penyetoran Piutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Tambah Modal" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Tarik Modal" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Set Saldo Awal" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="22.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Laporan" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Jurnal Umum" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Buku Besar" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Neraca Saldo" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Neraca" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Rugi Laba" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Akhir" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Periode" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Bulanan" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Tahunan" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Hutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Saldo Piutang" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="22.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Akun" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+   </children>
+</HBox>
