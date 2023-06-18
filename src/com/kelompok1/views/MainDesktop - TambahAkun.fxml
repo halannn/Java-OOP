@@ -152,7 +152,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label text="Akun">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Akun" userData="./views/Login.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -199,15 +199,18 @@
                <children>
                   <HBox prefHeight="45.0" prefWidth="615.0">
                      <children>
-                        <Label text="ID :">
+                        <Label prefHeight="24.2" prefWidth="116.99" text="ID :">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="115.74" top="7.5" />
+                              <Insets top="7.5" />
                            </HBox.margin>
                         </Label>
-                        <TextField alignment="CENTER" prefHeight="45.38" prefWidth="504.0" style="-fx-background-radius: 20;" />
+                        <TextField alignment="CENTER" prefHeight="45.38" prefWidth="504.0" style="-fx-background-radius: 20;">
+                           <HBox.margin>
+                              <Insets left="28.01" />
+                           </HBox.margin></TextField>
                      </children>
                      <VBox.margin>
                         <Insets left="174.0" right="174.5" />
@@ -215,17 +218,17 @@
                   </HBox>
                   <HBox prefHeight="45.38" prefWidth="615.26">
                      <children>
-                        <Label prefHeight="24.2" prefWidth="122.03" text="Nama Akun :">
+                        <Label prefHeight="24.2" prefWidth="116.99" text="Nama Akun :">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="22.97" top="7.5" />
+                              <Insets top="7.5" />
                            </HBox.margin>
                         </Label>
                         <TextField alignment="CENTER" prefHeight="45.38" prefWidth="504.0" style="-fx-background-radius: 20;">
                            <HBox.margin>
-                              <Insets />
+                              <Insets left="28.01" />
                            </HBox.margin>
                         </TextField>
                      </children>

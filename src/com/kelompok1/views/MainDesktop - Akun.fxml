@@ -238,7 +238,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="35.0" prefWidth="191.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="#588157" AnchorPane.rightAnchor="0.0" userData="./views/MainDesktop - TambahAkun.fxml">
+                        <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="#588157" userData="./views/MainDesktop - TambahAkun.fxml" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -258,6 +258,7 @@
                 <TableColumn text="ID" />
                 <TableColumn prefWidth="75.0" text="Nama Akun" />
                   <TableColumn prefWidth="75.0" text="Jenis Akun" />
+                  <TableColumn prefWidth="75.0" text="Aksi" />
               </columns>
                <VBox.margin>
                   <Insets bottom="110.0" left="30.0" right="30.0" top="61.0" />
