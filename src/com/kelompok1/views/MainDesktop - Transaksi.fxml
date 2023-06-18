@@ -27,7 +27,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Text>
-                  <Label text="Home" textFill="WHITE" onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/MainDesktop.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Akun.fxml" text="Akun" textFill="WHITE">
+                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Akun" textFill="WHITE" userData="./views/MainDesktop - Akun.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -167,7 +167,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/Login.fxml" text="Keluar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Keluar" textFill="WHITE" userData="./views/Login.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -203,14 +203,6 @@
                   </Label>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="Transaksi Terakhir" textFill="WHITE">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets right="34.0" />
-                           </HBox.margin>
-                        </Button>
                         <DatePicker prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Awal">
                            <HBox.margin>
                               <Insets bottom="2.0" right="34.0" top="2.0" />
@@ -221,6 +213,14 @@
                               <Insets bottom="2.0" top="2.0" />
                            </HBox.margin>
                         </DatePicker>
+                        <Button mnemonicParsing="false" prefWidth="170.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Transaksi" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="398.0" />
+                           </HBox.margin>
+                        </Button>
                      </children>
                      <VBox.margin>
                         <Insets top="21.0" />
