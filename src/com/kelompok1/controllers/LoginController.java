@@ -14,17 +14,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class LoginController {
 
     private Stage stage;
     private Scene scene;
-    
+
     @FXML
     private TextField username;
-    
-    @FXML 
+
+    @FXML
     private PasswordField password;
 
     @FXML
@@ -35,19 +36,18 @@ public class LoginController {
 
     public void signIn(ActionEvent event) throws Exception {
 
-        if (username.getText().equals("")){
+        if (username.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Username tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if (password.getText().equals("")){
+        if (password.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Password tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        
 
         Parent root = FXMLLoader.load(App.class.getResource("./views/MainDesktop.fxml"));
 
@@ -61,5 +61,18 @@ public class LoginController {
         stage.show();
     }
 
+    public void nonFeature(MouseEvent event) throws Exception {
+
+        Parent root = FXMLLoader.load(App.class.getResource("./views/unUpdated.fxml"));
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+
+        // String css = this.getClass().getResource("MainScene.css").toExternalForm();
+        // scene.getStylesheets().add(css);
+
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
