@@ -30,7 +30,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Text>
-                  <Label fx:id="sideBarHome" onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop.fxml" text="Home" textFill="WHITE">
+                  <Label fx:id="sideBarHome" onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/MainDesktop.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -43,7 +43,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Transaksi.fxml" text="Transaksi" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Transaksi" textFill="WHITE" userData="./views/MainDesktop - Transaksi.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/Login.fxml" text="Keluar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Keluar" textFill="WHITE" userData="./views/Login.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -236,14 +236,17 @@
                         </TextField>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="35.0" prefWidth="191.0">
+                  <AnchorPane prefHeight="35.0" prefWidth="191.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="#588157" AnchorPane.leftAnchor="503.0">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="#588157" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
                   </AnchorPane>
                </children>
                <VBox.margin>
