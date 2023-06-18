@@ -36,7 +36,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label text="Transaksi" textFill="WHITE">
+                  <Label onMouseClicked="#menuTransaksi" text="Transaksi" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
