@@ -152,7 +152,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Akun" userData="./views/Login.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Akun" userData="./views/MainDesktop - Akun.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
