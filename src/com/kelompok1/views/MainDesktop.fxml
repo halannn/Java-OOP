@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -36,7 +40,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Transaksi.fxml" text="Transaksi" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Transaksi" textFill="WHITE" userData="./views/MainDesktop - Transaksi.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -150,7 +154,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Akun.fxml" text="Akun" textFill="WHITE">
+                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Akun" textFill="WHITE" userData="./views/MainDesktop - Akun.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -163,7 +167,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/Login.fxml" text="Keluar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Keluar" textFill="WHITE" userData="./views/Login.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -183,6 +187,44 @@
             </VBox>
          </content>
       </ScrollPane>
-      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label text="Home" textFill="#588157">
+               <VBox.margin>
+                  <Insets left="27.0" top="26.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox>
+               <children>
+                  <ChoiceBox prefHeight="55.0" prefWidth="443.0">
+                     <HBox.margin>
+                        <Insets left="26.0" right="62.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+                  <ChoiceBox prefHeight="55.0" prefWidth="443.0">
+                     <HBox.margin>
+                        <Insets right="26.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="35.0" />
+               </VBox.margin>
+            </HBox>
+            <StackedBarChart>
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+               <VBox.margin>
+                  <Insets bottom="22.0" left="22.0" right="22.0" top="44.0" />
+               </VBox.margin>
+            </StackedBarChart>
+         </children></VBox>
    </children>
 </HBox>
