@@ -41,17 +41,17 @@ public class User {
     private String username;
     private String hashedPassword;
 
-    private int idPerusahaan;
+    private int idOwnPerusahaan;
     private int idRole;
     private UserStatus status;
 
     private static Argon2 argon2 = Argon2Factory.create();
 
-    public User(String username, String hashedPassword, int idPerusahaan, int idRole, UserStatus status) {
+    public User(String username, String hashedPassword, int idOwnPerusahaan, int idRole, UserStatus status) {
         this.id = -1;
         this.username = username;
         this.hashedPassword = hashedPassword;
-        this.idPerusahaan = idPerusahaan;
+        this.idOwnPerusahaan = idOwnPerusahaan;
         this.idRole = idRole;
         this.status = status;
     }
@@ -80,12 +80,12 @@ public class User {
         this.hashedPassword = hashedPassword;
     }
 
-    public int getIdPerusahaan() {
-        return idPerusahaan;
+    public int getIdOwnPerusahaan() {
+        return idOwnPerusahaan;
     }
 
-    public void setIdPerusahaan(int idPerusahaan) {
-        this.idPerusahaan = idPerusahaan;
+    public void setIdOwnPerusahaan(int idOwnPerusahaan) {
+        this.idOwnPerusahaan = idOwnPerusahaan;
     }
 
     public int getIdRole() {
@@ -114,7 +114,7 @@ public class User {
         }
         try {
             PreparedStatement stm = DB.prepareStatement("SELECT * FROM perusahaan WHERE id = ?");
-            stm.setInt(1, this.idPerusahaan);
+            stm.setInt(1, this.idOwnPerusahaan);
             Perusahaan relatedPerusahaan = null;
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
@@ -177,7 +177,7 @@ public class User {
             stm.setString(1, username);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
-                user = new User(rs.getString("username"), rs.getString("password"), rs.getInt("id_perusahaan"),
+                user = new User(rs.getString("username"), rs.getString("password"), rs.getInt("id_own_perusahaan"),
                         rs.getInt("id_role"), UserStatus.fromString(rs.getString("status")));
                 user.setId(rs.getInt("id"));
             }
