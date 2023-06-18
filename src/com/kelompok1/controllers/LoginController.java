@@ -41,7 +41,7 @@ public class LoginController extends BaseController {
             return;
         }
         User pggn = User.getByUsername(username.getText());
-        if (pggn.equals(null)){
+        if (pggn==null){
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("username atau password salah");
             alt.showAndWait();
