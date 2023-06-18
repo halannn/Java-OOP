@@ -64,4 +64,11 @@ public class BaseController {
 
         switchView(viewPath);
     }
+
+    public void signOut() throws IOException{
+        user = null;
+        switchView("./views/Login.fxml");
+    }
+
+
 }

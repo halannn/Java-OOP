@@ -1,5 +1,7 @@
 package com.kelompok1.controllers;
 
+import com.kelompok1.models.User;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -38,6 +40,23 @@ public class LoginController extends BaseController {
             alt.showAndWait();
             return;
         }
+        User pggn = User.getByUsername(username.getText());
+        if (pggn.equals(null)){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("username atau password salah");
+            alt.showAndWait();
+            return;
+        }
+
+        if (pggn.verifyPassword(password.getText()) == false){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("username atau password salah");
+            alt.showAndWait();
+            return;
+        }
+
+        setUser(pggn);
+
 
         switchView("./views/MainDesktop.fxml");
     }
