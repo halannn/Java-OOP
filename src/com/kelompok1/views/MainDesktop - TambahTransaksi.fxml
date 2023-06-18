@@ -31,7 +31,7 @@
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
+                        <Insets left="28.0" top="44.0" />
                      </VBox.margin>
                   </Label>
                   <Separator prefWidth="200.0">
@@ -68,6 +68,14 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
+                  <Label text="Trial Balance" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="28.0" top="22.0" />
+                     </VBox.margin>
+                  </Label>
                   <Label text="Buku Besar" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
@@ -76,7 +84,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Neraca Saldo" textFill="WHITE">
+                  <Label text="Laba Rugi" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -84,7 +92,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Neraca" textFill="WHITE">
+                  <Label text="Perubahan Modal" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -92,55 +100,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Rugi Laba" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Akhir" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Periode" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Bulanan" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Tahunan" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Hutang" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Saldo Piutang" textFill="WHITE">
+                  <Label text="Neraca Keuangan" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
