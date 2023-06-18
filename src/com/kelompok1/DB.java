@@ -9,7 +9,7 @@ public class DB {
     private static final String url = "jdbc:mysql://"
             + App.dotenv.get("MYSQL_HOST", "localhost") + ":"
             + App.dotenv.get("MYSQL_PORT", "3306") + "/"
-            + App.dotenv.get("MYSQL_DB", "tubes_pbo_sia");
+            + App.dotenv.get("MYSQL_DB", "pbo_database");
     private static final String user = App.dotenv.get("MYSQL_USERNAME", "root");
     private static final String password = App.dotenv.get("MYSQL_PASSWORD", "");
 
