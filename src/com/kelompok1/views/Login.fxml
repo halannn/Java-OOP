@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.LoginController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="310.0" text="Hello Again !" textFill="#588157">
          <font>
@@ -42,7 +42,7 @@
             <Insets left="260.0" right="260.0" top="62.0" />
          </VBox.margin>
       </PasswordField>
-      <Label fx:id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
+      <Label fx:id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onMouseClicked="#nonFeature" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
          <font>
             <Font size="20.0" />
          </font>

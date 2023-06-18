@@ -18,7 +18,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.AkunController">
    <children>
-      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
+      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;" vvalue="1.0">
          <content>
             <VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
                <children>
