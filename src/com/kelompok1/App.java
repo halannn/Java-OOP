@@ -1,5 +1,7 @@
 package com.kelompok1;
 
+import com.kelompok1.controllers.BaseController;
+
 import io.github.cdimascio.dotenv.Dotenv;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("./views/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./views/Login.fxml"));
+        Parent root = loader.load();
+        BaseController controller = loader.getController();
 
         Scene scene = new Scene(root);
 
@@ -27,6 +31,7 @@ public class App extends Application {
         primaryStage.setTitle("Sistem Informasi Akutansi");
         primaryStage.sizeToScene();
         primaryStage.setScene(scene);
+        controller.setStage(primaryStage);
 
         primaryStage.show();
     }

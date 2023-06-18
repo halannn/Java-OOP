@@ -36,7 +36,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#menuTransaksi" text="Transaksi" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Transaksi.fxml" text="Transaksi" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -150,7 +150,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#menuAkun" text="Akun" textFill="WHITE">
+                  <Label fx:id="sideBarAkun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" userData="./views/MainDesktop - Akun.fxml" text="Akun" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -163,7 +163,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label onMouseClicked="#backToLogin" text="Keluar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" userData="./views/Login.fxml" text="Keluar" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>

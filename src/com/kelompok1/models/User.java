@@ -2,6 +2,7 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 
@@ -39,6 +40,7 @@ public class User {
     private int id;
     private String username;
     private String hashedPassword;
+
     private int idPerusahaan;
     private int idRole;
     private UserStatus status;
@@ -68,6 +70,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 
     public int getIdPerusahaan() {
@@ -133,19 +143,17 @@ public class User {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Role relatedRole = null;
         try {
             PreparedStatement stm = DB.prepareStatement("SELECT * FROM role WHERE id = ?");
             stm.setInt(1, this.idRole);
-            Role relatedRole = null;
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 relatedRole = new Role(rs.getString("nama_role"), rs.getInt("permissions_flag"));
                 relatedRole.setId(rs.getInt("id"));
             }
-            return relatedRole;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         } finally {
             try {
                 DB.disconnect();
@@ -153,6 +161,36 @@ public class User {
                 e.printStackTrace();
             }
         }
+        return relatedRole;
+    }
+
+    public static User getByUsername(String username) {
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        User user = null;
+        try {
+            PreparedStatement stm = DB.prepareStatement("SELECT * FROM user WHERE username = ?");
+            stm.setString(1, username);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                user = new User(rs.getString("username"), rs.getString("password"), rs.getInt("id_perusahaan"),
+                        rs.getInt("id_role"), UserStatus.fromString(rs.getString("status")));
+                user.setId(rs.getInt("id"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
     }
 
     public boolean verifyPassword(String password) {

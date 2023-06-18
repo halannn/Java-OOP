@@ -42,7 +42,7 @@
             <Insets left="260.0" right="260.0" top="62.0" />
          </VBox.margin>
       </PasswordField>
-      <Label fx:id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onMouseClicked="#nonFeature" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
+      <Label fx:id="fgPass" alignment="CENTER_RIGHT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" userData="./views/unUpdated.fxml" prefHeight="43.0" prefWidth="186.0" text="Forgot Password ?">
          <font>
             <Font size="20.0" />
          </font>

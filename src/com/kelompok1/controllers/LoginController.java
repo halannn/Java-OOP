@@ -1,13 +1,7 @@
 package com.kelompok1.controllers;
 
-import com.kelompok1.App;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,12 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-public class LoginController {
-
-    private Stage stage;
-    private Scene scene;
+public class LoginController extends BaseController {
 
     @FXML
     private TextField username;
@@ -49,30 +39,7 @@ public class LoginController {
             return;
         }
 
-        Parent root = FXMLLoader.load(App.class.getResource("./views/MainDesktop.fxml"));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-
-        // String css = this.getClass().getResource("MainScene.css").toExternalForm();
-        // scene.getStylesheets().add(css);
-
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void nonFeature(MouseEvent event) throws Exception {
-
-        Parent root = FXMLLoader.load(App.class.getResource("./views/unUpdated.fxml"));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-
-        // String css = this.getClass().getResource("MainScene.css").toExternalForm();
-        // scene.getStylesheets().add(css);
-
-        stage.setScene(scene);
-        stage.show();
+        switchView("./views/MainDesktop.fxml");
     }
 
 }

@@ -13,7 +13,7 @@
             <Image url="@../resources/Group%2016.png" />
          </image>
       </ImageView>
-      <Button mnemonicParsing="false" onMouseClicked="#backToLogin" prefHeight="51.0" prefWidth="434.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="Back To Login" textFill="WHITE" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="382.6" AnchorPane.topAnchor="692.0">
+      <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" userData="./views/Login.fxml" prefHeight="51.0" prefWidth="434.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="Back To Login" textFill="WHITE" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="382.6" AnchorPane.topAnchor="692.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
