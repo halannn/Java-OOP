@@ -30,7 +30,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 public class AkunController extends BaseController implements Initializable {
@@ -92,7 +91,7 @@ public class AkunController extends BaseController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try {
             String filename = (new File(location.toURI().getPath())).getName();
-            if (filename.equals("MainDesktop - Akun.fxml")) {
+            if (filename.equals("Akun.fxml")) {
                 namaAkunCol.setCellValueFactory(new PropertyValueFactory<Akun, String>("namaAkun"));
                 jenisAkunCol.setCellValueFactory(new PropertyValueFactory<Akun, String>("jenisAkun"));
                 aksiCol.setCellFactory((new Callback<TableColumn<Akun, Void>, TableCell<Akun, Void>>() {
@@ -144,9 +143,9 @@ public class AkunController extends BaseController implements Initializable {
                 searchInput.textProperty().addListener((observable, oldValue, newValue) -> {
                     refresh();
                 });
-            } else if (filename.equals("MainDesktop - TambahAkun.fxml")) {
+            } else if (filename.equals("TambahAkun.fxml")) {
                 jenisAkunInput.getItems().addAll(JenisAkun.values());
-            } else if (filename.equals("MainDesktop - UbahAkun.fxml")) {
+            } else if (filename.equals("UbahAkun.fxml")) {
                 jenisAkunInput.getItems().addAll(JenisAkun.values());
                 selectedAkun.addListener(new ChangeListener<Akun>() {
                     @Override
@@ -195,7 +194,7 @@ public class AkunController extends BaseController implements Initializable {
 
     public void handleUbahBtn(Akun selectedAkun) {
         try {
-            AkunController controller = (AkunController) switchView("./views/MainDesktop - UbahAkun.fxml");
+            AkunController controller = (AkunController) switchView("./views/UbahAkun.fxml");
             controller.setSelectedAkun(selectedAkun);
         } catch (IOException e) {
             e.printStackTrace();
@@ -235,7 +234,7 @@ public class AkunController extends BaseController implements Initializable {
         akun.tambah();
 
         try {
-            switchView("./views/MainDesktop - Akun.fxml");
+            switchView("./views/Akun.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -262,7 +261,7 @@ public class AkunController extends BaseController implements Initializable {
         selectedAkun.get().ubah();
 
         try {
-            switchView("./views/MainDesktop - Akun.fxml");
+            switchView("./views/Akun.fxml");
         } catch (IOException e) {
             e.printStackTrace();
         }

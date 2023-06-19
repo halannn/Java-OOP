@@ -57,7 +57,7 @@ public class LoginController extends BaseController {
         setUser(pggn);
 
 
-        switchView("./views/MainDesktop.fxml");
+        switchView("./views/Home.fxml");
     }
 
 }

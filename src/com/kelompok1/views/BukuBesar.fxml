@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.MainController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.BukuBesarController">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
          <content>
@@ -28,7 +27,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Text>
-                  <Label fx:id="Home" onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/MainDesktop.fxml">
+                  <Label fx:id="Home" onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/Home.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -41,7 +40,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="Transaksi" onMouseClicked="#switchViewFromEvent" text="Transaksi" textFill="WHITE" userData="./views/MainDesktop - Transaksi.fxml">
+                  <Label fx:id="Transaksi" onMouseClicked="#switchViewFromEvent" text="Transaksi" textFill="WHITE" userData="./views/Transaksi.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -62,7 +61,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="JurnalUmum" onMouseClicked="#switchViewFromEvent" text="Jurnal Umum" textFill="WHITE" userData="./views/MainDesktop - JurnalUmum.fxml">
+                  <Label fx:id="JurnalUmum" onMouseClicked="#switchViewFromEvent" text="Jurnal Umum" textFill="WHITE" userData="./views/JurnalUmum.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -70,7 +69,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="TrialBalance" onMouseClicked="#switchViewFromEvent" text="Trial Balance" textFill="WHITE" userData="./views/MainDesktop - TrialBalance.fxml">
+                  <Label fx:id="TrialBalance" onMouseClicked="#switchViewFromEvent" text="Trial Balance" textFill="WHITE" userData="./views/TrialBalance.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -78,7 +77,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="BukuBesar" onMouseClicked="#switchViewFromEvent" text="Buku Besar" textFill="WHITE" userData="./views/MainDesktop - BukuBesar.fxml">
+                  <Label fx:id="BukuBesar" onMouseClicked="#switchViewFromEvent" text="Buku Besar" textFill="WHITE" userData="./views/BukuBesar.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -86,7 +85,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="LabaRugi" onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/MainDesktop - LabaRugi.fxml">
+                  <Label fx:id="LabaRugi" onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/LabaRugi.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -94,7 +93,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="PerubahanModal" onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/MainDesktop - PerubahanModal.fxml">
+                  <Label fx:id="PerubahanModal" onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/PerubahanModal.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -102,7 +101,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="NeracaKeuangan" onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
+                  <Label fx:id="NeracaKeuangan" onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/NeracaKeuangan.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -115,7 +114,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="Akun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Akun" textFill="WHITE" userData="./views/MainDesktop - Akun.fxml">
+                  <Label fx:id="Akun" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Akun" textFill="WHITE" userData="./views/Akun.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -128,7 +127,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="Klien" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Klien" textFill="WHITE" userData="./views/MainDesktop - Klien.fxml">
+                  <Label fx:id="Klien" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Klien" textFill="WHITE" userData="./views/Klien.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -141,7 +140,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="User" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="User" textFill="WHITE" userData="./views/MainDesktop - User.fxml">
+                  <Label fx:id="User" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="User" textFill="WHITE" userData="./views/User.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -154,7 +153,7 @@
                         <Insets top="22.0" />
                      </VBox.margin>
                   </Separator>
-                  <Label fx:id="Role" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Role" textFill="WHITE" userData="./views/MainDesktop - Role.fxml">
+                  <Label fx:id="Role" accessibleRole="BUTTON" onMouseClicked="#switchViewFromEvent" text="Role" textFill="WHITE" userData="./views/Role.fxml">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -186,57 +185,68 @@
       </ScrollPane>
       <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
          <children>
-            <VBox prefHeight="120.0" prefWidth="922.0">
-               <children>
-                  <Label text="Transaksi" textFill="#588157">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Label text="Periode">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
+            <Label text="Buku Besar" textFill="#588157">
                <VBox.margin>
-                  <Insets left="39.0" right="39.0" top="27.0" />
+                  <Insets left="27.0" top="26.0" />
                </VBox.margin>
-            </VBox>
-            <HBox maxWidth="1.7976931348623157E308">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0">
                <children>
-                  <AnchorPane HBox.hgrow="ALWAYS">
+                  <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
-                        <DatePicker layoutY="2.4000000953674316" prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Awal" AnchorPane.leftAnchor="39.0" />
-                        <DatePicker layoutX="256.0" layoutY="3.0" prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Akhir" />
-                        <Button layoutX="790.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefWidth="170.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Transaksi" textFill="WHITE" userData="./views/MainDesktop - TambahTransaksi.fxml" AnchorPane.rightAnchor="39.599999999999994">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Button>
+                        <DatePicker maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Awal" AnchorPane.leftAnchor="30.0" />
+                        <DatePicker layoutX="485.6000003814697" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Akhir" AnchorPane.rightAnchor="30.0" />
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </AnchorPane>
                </children>
                <VBox.margin>
-                  <Insets top="21.0" />
+                  <Insets top="24.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="592.0" prefWidth="922.0">
+            <TableView prefHeight="534.0" prefWidth="934.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn prefWidth="75.0" text="Tanggal" />
-                <TableColumn prefWidth="75.0" text="Akun" />
-                  <TableColumn prefWidth="75.0" text="Posisi" />
-                  <TableColumn prefWidth="75.0" text="Nominal" />
-                  <TableColumn prefWidth="75.0" text="Keterangan" />
-                  <TableColumn prefWidth="75.0" text="Aksi" />
+                <TableColumn prefWidth="75.0" text="Keterangan" />
+                  <TableColumn prefWidth="75.0" text="Debit" />
+                  <TableColumn prefWidth="75.0" text="Kredit" />
+                  <TableColumn prefWidth="75.0" text="Saldo" />
               </columns>
-               <VBox.margin>
-                  <Insets bottom="39.0" left="39.0" right="39.0" top="23.0" />
-               </VBox.margin>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
+               <VBox.margin>
+                  <Insets left="30.0" right="35.0" top="24.0" />
+               </VBox.margin>
             </TableView>
+            <HBox>
+               <children>
+                  <Label text="Saldo Akhir :">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Rp. Place holder" textFill="#588157">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
          </children></VBox>
    </children>
 </HBox>

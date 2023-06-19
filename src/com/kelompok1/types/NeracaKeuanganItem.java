@@ -27,12 +27,12 @@ enum KelompokNeraca {
     }
 }
 
-public class NeracaItem implements ILaporanItem {
+public class NeracaKeuanganItem implements ILaporanItem {
     private KelompokNeraca kelompok;
     private String namaAkun;
     private double nominal;
 
-    public NeracaItem(String kelompok, String namaAkun, double nominal) {
+    public NeracaKeuanganItem(String kelompok, String namaAkun, double nominal) {
         this.kelompok = KelompokNeraca.fromString(kelompok);
         this.namaAkun = namaAkun;
         this.nominal = nominal;
