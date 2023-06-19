@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -28,7 +25,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Text>
-                  <Label text="Home">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/MainDesktop.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -86,7 +83,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/MainDesktop - LabaRugi.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData=".views/">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -94,7 +91,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/MainDesktop - PerubahanModal.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Perubahan Modal">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -102,7 +99,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -150,7 +147,7 @@
       </ScrollPane>
       <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
          <children>
-            <Label text="Home" textFill="#588157">
+            <Label text="Perubahan Modal" textFill="#588157">
                <VBox.margin>
                   <Insets left="27.0" top="26.0" />
                </VBox.margin>
@@ -158,30 +155,117 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <HBox>
+            <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0">
                <children>
                   <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
-                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.leftAnchor="30.0" />
-                        <ChoiceBox layoutX="504.800012588501" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.rightAnchor="30.0" />
+                        <DatePicker layoutX="485.6000003814697" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Akhir" AnchorPane.leftAnchor="30.0" />
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </AnchorPane>
                </children>
                <VBox.margin>
-                  <Insets top="35.0" />
+                  <Insets top="50.0" />
                </VBox.margin>
             </HBox>
-            <StackedBarChart prefHeight="542.0" prefWidth="955.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Modal :">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="670.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Place Holder">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Laba Bersih :">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="625.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Place Holder">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Prive :">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="690.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Place Holder">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Modal Akhir :">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="625.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="Place Holder">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
                <VBox.margin>
-                  <Insets bottom="44.0" left="26.0" right="26.0" top="44.0" />
+                  <Insets top="200.0" />
                </VBox.margin>
-            </StackedBarChart>
+            </VBox>
          </children></VBox>
    </children>
 </HBox>

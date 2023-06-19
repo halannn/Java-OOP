@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -28,7 +27,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Text>
-                  <Label text="Home">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Home" textFill="WHITE" userData="./views/MainDesktop.fxml">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -102,7 +101,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -150,7 +149,7 @@
       </ScrollPane>
       <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
          <children>
-            <Label text="Home" textFill="#588157">
+            <Label text="Neraca Keuangan" textFill="#588157">
                <VBox.margin>
                   <Insets left="27.0" top="26.0" />
                </VBox.margin>
@@ -158,30 +157,35 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <HBox>
+            <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0">
                <children>
                   <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
-                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.leftAnchor="30.0" />
-                        <ChoiceBox layoutX="504.800012588501" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.rightAnchor="30.0" />
+                        <DatePicker maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Awal" AnchorPane.leftAnchor="30.0" />
+                        <DatePicker layoutX="485.6000003814697" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Akhir" AnchorPane.rightAnchor="30.0" />
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </AnchorPane>
                </children>
                <VBox.margin>
-                  <Insets top="35.0" />
+                  <Insets top="24.0" />
                </VBox.margin>
             </HBox>
-            <StackedBarChart prefHeight="542.0" prefWidth="955.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
+            <TableView prefHeight="602.0" prefWidth="934.0" tableMenuButtonVisible="true">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Kelompok" />
+                <TableColumn prefWidth="75.0" text="Keterangan" />
+                  <TableColumn prefWidth="75.0" text="Saldo" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
                <VBox.margin>
-                  <Insets bottom="44.0" left="26.0" right="26.0" top="44.0" />
+                  <Insets left="30.0" right="35.0" top="24.0" />
                </VBox.margin>
-            </StackedBarChart>
+            </TableView>
          </children></VBox>
    </children>
 </HBox>

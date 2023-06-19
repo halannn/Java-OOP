@@ -80,7 +80,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Buku Besar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Buku Besar" textFill="WHITE" userData="">
                      <font>
                         <Font size="14.0" />
                      </font>

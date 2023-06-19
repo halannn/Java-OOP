@@ -72,7 +72,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Trial Balance" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Trial Balance" textFill="WHITE" userData="./views/MainDesktop - TrialBalance.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Buku Besar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Buku Besar" textFill="WHITE" userData="./views/MainDesktop - BukuBesar.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -88,7 +88,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Laba Rugi" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/MainDesktop - LabaRugi.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -96,7 +96,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Perubahan Modal" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/MainDesktop - PerubahanModal.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -104,7 +104,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Neraca Keuangan" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -200,7 +200,7 @@
                   <Insets top="24.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="534.0" prefWidth="934.0" tableMenuButtonVisible="true">
+            <TableView prefHeight="477.0" prefWidth="934.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn prefWidth="75.0" text="Keterangan" />
                 <TableColumn prefWidth="75.0" text="Debit" />
@@ -213,6 +213,29 @@
                   <Insets left="30.0" right="35.0" top="24.0" />
                </VBox.margin>
             </TableView>
+            <HBox>
+               <children>
+                  <Label text="Saldo Akhir :">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="Rp. Place holder" textFill="#588157">
+                     <HBox.margin>
+                        <Insets left="100.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
          </children></VBox>
    </children>
 </HBox>

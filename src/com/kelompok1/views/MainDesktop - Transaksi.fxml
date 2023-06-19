@@ -70,7 +70,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Trial Balance" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Trial Balance" textFill="WHITE" userData="./views/MainDesktop - TrialBalance.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -78,7 +78,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Buku Besar" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Buku Besar" textFill="WHITE" userData="./views/MainDesktop - BukuBesar.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Laba Rugi" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/MainDesktop - LabaRugi.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -94,7 +94,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Perubahan Modal" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/MainDesktop - PerubahanModal.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -102,7 +102,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Neraca Keuangan" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
