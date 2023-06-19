@@ -109,12 +109,12 @@ public class AkunController extends BaseController implements Initializable {
                                 hapusBtn.getStyleClass().add("danger-btn");
                                 actionWrapper.getChildren().addAll(ubahBtn, hapusBtn);
                                 ubahBtn.setOnAction((ActionEvent event) -> {
-                                    Akun data = getTableView().getItems().get(getIndex());
-                                    handleUbahBtn(data);
+                                    Akun akun = getTableView().getItems().get(getIndex());
+                                    handleUbahBtn(akun);
                                 });
                                 hapusBtn.setOnAction((ActionEvent event) -> {
-                                    Akun data = getTableView().getItems().get(getIndex());
-                                    hapusAkun(data);
+                                    Akun akun = getTableView().getItems().get(getIndex());
+                                    hapusAkun(akun);
                                 });
                             }
 
@@ -164,6 +164,9 @@ public class AkunController extends BaseController implements Initializable {
     }
 
     private void refresh() {
+        if (currentPage == 0) {
+            currentPage = 1;
+        }
         QueryOptions options = new QueryOptions();
         options.setIdOwnPerusahaan(getUser().getIdOwnPerusahaan());
         options.setLimit(OptionalInt.of(limitVal));
@@ -183,11 +186,11 @@ public class AkunController extends BaseController implements Initializable {
         prevBtn.setDisable(false);
         nextBtn.setDisable(false);
 
-        if(currentPage<=1){
+        if (currentPage <= 1) {
             prevBtn.setDisable(true);
         }
 
-        if(currentPage>=pageTotal){
+        if (currentPage >= pageTotal) {
             nextBtn.setDisable(true);
         }
     }
