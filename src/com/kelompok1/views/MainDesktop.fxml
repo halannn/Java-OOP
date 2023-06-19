@@ -61,7 +61,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Jurnal Umum" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Jurnal Umum" textFill="WHITE" userData="./views/MainDesktop - JurnalUmum.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -159,12 +159,12 @@
             </Label>
             <HBox>
                <children>
-                  <ChoiceBox prefHeight="55.0" prefWidth="443.0">
+                  <ChoiceBox prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;">
                      <HBox.margin>
                         <Insets left="26.0" right="62.0" />
                      </HBox.margin>
                   </ChoiceBox>
-                  <ChoiceBox prefHeight="55.0" prefWidth="443.0">
+                  <ChoiceBox prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;">
                      <HBox.margin>
                         <Insets right="26.0" />
                      </HBox.margin>
@@ -174,7 +174,7 @@
                   <Insets top="35.0" />
                </VBox.margin>
             </HBox>
-            <StackedBarChart>
+            <StackedBarChart prefHeight="542.0" prefWidth="955.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -182,7 +182,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
                <VBox.margin>
-                  <Insets bottom="22.0" left="22.0" right="22.0" top="44.0" />
+                  <Insets bottom="44.0" left="26.0" right="26.0" top="44.0" />
                </VBox.margin>
             </StackedBarChart>
          </children></VBox>

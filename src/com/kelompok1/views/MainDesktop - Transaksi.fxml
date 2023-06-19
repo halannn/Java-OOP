@@ -61,7 +61,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Jurnal Umum" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Jurnal Umum" textFill="WHITE" userData="./views/MainDesktop - JurnalUmum.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
