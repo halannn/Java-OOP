@@ -7,58 +7,11 @@ import java.util.Optional;
 import java.util.OptionalInt;
 
 import com.kelompok1.DB;
+import com.kelompok1.types.JenisAkun;
 import com.kelompok1.types.QueryOptions;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-enum JenisAkun {
-    Aset,
-    Modal,
-    Pengeluaran,
-    Pendapatan,
-    Hutang,
-    Piutang;
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case Aset:
-                return "aset";
-            case Modal:
-                return "modal";
-            case Pengeluaran:
-                return "pengeluaran";
-            case Pendapatan:
-                return "pendapatan";
-            case Hutang:
-                return "hutang";
-            case Piutang:
-                return "piutang";
-            default:
-                return "unknown";
-        }
-    }
-
-    public static JenisAkun fromString(String jenisString) {
-        switch (jenisString) {
-            case "aset":
-                return Aset;
-            case "modal":
-                return Modal;
-            case "pengeluaran":
-                return Pengeluaran;
-            case "pendapatan":
-                return Pendapatan;
-            case "hutang":
-                return Hutang;
-            case "piutang":
-                return Piutang;
-            default:
-                return null;
-        }
-    }
-}
 
 public class Akun {
     private int id;
@@ -183,6 +136,51 @@ public class Akun {
         }
 
         return akunRes;
+    }
+
+    public static int getAllCount(QueryOptions options){
+        int count = 0;
+
+        String stmString = "SELECT COUNT(*) FROM akun WHERE id_own_perusahaan = ?";
+        Optional<String> search = options.getSearch();
+        if (search.isPresent()) {
+            stmString += " AND (nama_akun LIKE ? OR jenis_akun LIKE ?)";
+        }
+
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement stm = DB.prepareStatement(stmString);
+            int paramIndex = 1;
+            stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+            paramIndex += 1;
+            if (search.isPresent()) {
+                String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll(" +", "%") + "%";
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+            }
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return count;
     }
 
     // Method untuk menambahkan akun baru ke database
