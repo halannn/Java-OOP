@@ -98,7 +98,7 @@ CREATE TABLE `pbo_database`.`transaksi` (
   `tanggal` DATE NOT NULL,
   `id_akun` INT NOT NULL,
   `posisi_akun` ENUM('debit', 'kredit') NOT NULL,
-  `id_klien` INT NOT NULL,
+  `id_klien` INT NULL,
   `keterangan` TEXT NOT NULL,
   `nominal` DOUBLE NOT NULL,
   PRIMARY KEY (`id`),
