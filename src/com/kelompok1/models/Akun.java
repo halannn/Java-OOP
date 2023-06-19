@@ -163,7 +163,6 @@ public class Akun {
                 stm.setInt(paramIndex, (currentPage.getAsInt() - 1) * limitVal);
                 paramIndex += 1;
             }
-            System.out.println(stm.toString());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Akun akun = new Akun(
