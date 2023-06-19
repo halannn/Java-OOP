@@ -105,15 +105,15 @@ public class Akun {
                 paramIndex += 1;
             }
             if (limit.isPresent()) {
-                stm.setInt(paramIndex, limit.getAsInt());
+                stm.setInt(paramIndex, Math.max(limit.getAsInt(),0));
                 paramIndex += 1;
             }
             if (currentPage.isPresent()) {
                 int limitVal = 50;
                 if (limit.isPresent()) {
-                    limitVal = limit.getAsInt();
+                    limitVal = Math.max(limit.getAsInt(),0);
                 }
-                stm.setInt(paramIndex, (currentPage.getAsInt() - 1) * limitVal);
+                stm.setInt(paramIndex, Math.max((currentPage.getAsInt() - 1),0) * limitVal);
                 paramIndex += 1;
             }
             ResultSet rs = stm.executeQuery();
