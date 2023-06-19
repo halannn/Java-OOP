@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -162,18 +160,9 @@
             </Label>
             <HBox prefHeight="35.0" prefWidth="1000.0">
                <children>
-                  <AnchorPane style="-fx-background-color: white; -fx-background-radius: 20;" HBox.hgrow="ALWAYS">
+                  <AnchorPane HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
-                           <image>
-                              <Image url="@../resources/search.png" />
-                           </image>
-                        </ImageView>
-                        <TextField prefHeight="38.0" prefWidth="900.0" promptText="Search" style="-fx-background-color: none;" AnchorPane.leftAnchor="38.0">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </TextField>
+                        <ComboBox prefHeight="38.0" prefWidth="935.0" promptText="Place Holder" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
@@ -200,7 +189,7 @@
                   <Insets top="24.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="477.0" prefWidth="934.0" tableMenuButtonVisible="true">
+            <TableView prefHeight="477.0" prefWidth="1000.0" tableMenuButtonVisible="true">
               <columns>
                 <TableColumn prefWidth="75.0" text="Keterangan" />
                 <TableColumn prefWidth="75.0" text="Debit" />
@@ -210,7 +199,7 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
                <VBox.margin>
-                  <Insets left="30.0" right="35.0" top="24.0" />
+                  <Insets left="30.0" right="30.0" top="24.0" />
                </VBox.margin>
             </TableView>
             <HBox>
