@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.AkunController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.AkunController">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
          <content>
@@ -228,7 +228,7 @@
                               <Image url="@../resources/search.png" />
                            </image>
                         </ImageView>
-                        <TextField prefHeight="38.0" prefWidth="198.0" promptText="Search" style="-fx-background-color: none;" AnchorPane.leftAnchor="38.0">
+                        <TextField fx:id="searchInput" prefHeight="38.0" prefWidth="198.0" promptText="Search" style="-fx-background-color: none;" AnchorPane.leftAnchor="38.0">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -237,7 +237,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="35.0" prefWidth="191.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="#588157" userData="./views/MainDesktop - TambahAkun.fxml" AnchorPane.rightAnchor="0.0">
+                        <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Akun" textFill="WHITE" userData="./views/MainDesktop - TambahAkun.fxml" AnchorPane.rightAnchor="0.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -252,20 +252,33 @@
                   <Insets top="40.0" />
                </VBox.margin>
             </HBox>
-            <TableView editable="true" prefHeight="512.0" prefWidth="939.0" tableMenuButtonVisible="true">
+            <TableView fx:id="akunTable" editable="true" maxHeight="425.0" prefWidth="939.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn text="ID" />
-                <TableColumn prefWidth="75.0" text="Nama Akun" />
-                  <TableColumn prefWidth="75.0" text="Jenis Akun" />
-                  <TableColumn prefWidth="75.0" text="Aksi" />
+                <!-- <TableColumn text="ID" /> -->
+                <TableColumn fx:id="namaAkunCol" prefWidth="75.0" text="Nama Akun" />
+                  <TableColumn fx:id="jenisAkunCol" prefWidth="75.0" text="Jenis Akun" />
+                  <TableColumn fx:id="aksiCol" prefWidth="75.0" text="Aksi" />
               </columns>
                <VBox.margin>
-                  <Insets bottom="110.0" left="30.0" right="30.0" top="61.0" />
+                  <Insets left="30.0" right="30.0" top="61.0" />
                </VBox.margin>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+            <HBox alignment="TOP_RIGHT" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="30.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="prevBtn" onAction="#prevPage" mnemonicParsing="false" styleClass="primary-btn" text="&lt;">
+                     <HBox.margin>
+                        <Insets right="16.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="nextBtn" onAction="#nextPage" mnemonicParsing="false" styleClass="primary-btn" text="&gt;" />
+               </children>
+            </HBox>
          </children></VBox>
    </children>
 </HBox>
