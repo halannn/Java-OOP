@@ -1,8 +1,16 @@
 package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 import com.kelompok1.DB;
+import com.kelompok1.types.QueryOptions;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 enum JenisAkun {
     Aset,
@@ -54,11 +62,13 @@ enum JenisAkun {
 
 public class Akun {
     private int id;
+    private int idOwnPerusahaan;
     private String namaAkun;
     private JenisAkun jenisAkun;
 
     public Akun(String namaAkun, JenisAkun jenisAkun) {
         this.id = -1;
+        this.idOwnPerusahaan = -1;
         this.namaAkun = namaAkun;
         this.jenisAkun = jenisAkun;
     }
@@ -87,8 +97,83 @@ public class Akun {
         this.jenisAkun = tipeAkun;
     }
 
+    public int getIdOwnPerusahaan() {
+        return idOwnPerusahaan;
+    }
+
+    public void setIdOwnPerusahaan(int idOwnPerusahaan) {
+        this.idOwnPerusahaan = idOwnPerusahaan;
+    }
+
     public static JenisAkun getJenisAkunFromString(String jenisString) {
         return JenisAkun.fromString(jenisString);
+    }
+
+    public static ObservableList<Akun> getAll(QueryOptions options) {
+        ObservableList<Akun> akunRes = FXCollections.observableArrayList();
+
+        String stmString = "SELECT * FROM akun WHERE id_own_perusahaan = ?";
+        Optional<String> search = options.getSearch();
+        if (search.isPresent()) {
+            stmString += " AND (nama_akun = ? OR jenis_akun = ?)";
+        }
+        OptionalInt limit = options.getLimit();
+        if (limit.isPresent()) {
+            stmString += " LIMIT ?";
+        } else {
+            stmString += " LIMIT 50";
+        }
+        OptionalInt currentPage = options.getCurrentPage();
+        if (currentPage.isPresent()) {
+            stmString += " OFFSET ?";
+        }
+
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement stm = DB.prepareStatement(stmString);
+            int paramIndex = 1;
+            stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+            paramIndex += 1;
+            if (search.isPresent()) {
+                stm.setString(paramIndex, search.get());
+                paramIndex += 1;
+                stm.setString(paramIndex, search.get());
+                paramIndex += 1;
+            }
+            if (limit.isPresent()) {
+                stm.setInt(paramIndex, limit.getAsInt());
+                paramIndex += 1;
+            }
+            if (currentPage.isPresent()) {
+                stm.setInt(paramIndex, currentPage.getAsInt());
+                paramIndex += 1;
+            }
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Akun akun = new Akun(
+                        rs.getString("nama_akun"),
+                        getJenisAkunFromString(rs.getString("jenis_akun")));
+                akun.setId(rs.getInt("id"));
+                akun.setIdOwnPerusahaan(rs.getInt("id_own_perusahaan"));
+                akunRes.add(akun);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return akunRes;
     }
 
     // Method untuk menambahkan akun baru ke database
