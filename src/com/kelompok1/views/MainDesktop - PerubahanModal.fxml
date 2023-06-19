@@ -83,7 +83,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData=".views/">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/MainDesktop - LabaRugi.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -99,7 +99,7 @@
                         <Insets left="28.0" top="22.0" />
                      </VBox.margin>
                   </Label>
-                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE">
+                  <Label onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/MainDesktop - NeracaKeuangan.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -179,7 +179,7 @@
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="670.0" />
+                              <Insets right="370.0" />
                            </HBox.margin>
                         </Label>
                         <Label text="Place Holder">
@@ -199,7 +199,7 @@
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="625.0" />
+                              <Insets right="325.0" />
                            </HBox.margin>
                         </Label>
                         <Label text="Place Holder">
@@ -222,7 +222,7 @@
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="690.0" />
+                              <Insets right="390.0" />
                            </HBox.margin>
                         </Label>
                         <Label text="Place Holder">
@@ -245,7 +245,7 @@
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="625.0" />
+                              <Insets right="325.0" />
                            </HBox.margin>
                         </Label>
                         <Label text="Place Holder">
