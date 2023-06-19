@@ -3,6 +3,7 @@ package com.kelompok1.models;
 import java.util.List;
 
 import com.kelompok1.types.ILaporanItem;
+import com.kelompok1.types.JenisAkun;
 import com.kelompok1.types.NeracaItem;
 
 import javafx.collections.FXCollections;
