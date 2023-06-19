@@ -109,13 +109,17 @@ public class Akun {
         return JenisAkun.fromString(jenisString);
     }
 
+    public static String jenisAkunToString(JenisAkun jenisAkun) {
+        return jenisAkun.toString();
+    }
+
     public static ObservableList<Akun> getAll(QueryOptions options) {
         ObservableList<Akun> akunRes = FXCollections.observableArrayList();
 
         String stmString = "SELECT * FROM akun WHERE id_own_perusahaan = ?";
         Optional<String> search = options.getSearch();
         if (search.isPresent()) {
-            stmString += " AND (nama_akun = ? OR jenis_akun = ?)";
+            stmString += " AND (nama_akun LIKE ? OR jenis_akun LIKE ?)";
         }
         OptionalInt limit = options.getLimit();
         if (limit.isPresent()) {
@@ -141,9 +145,10 @@ public class Akun {
             stm.setInt(paramIndex, options.getIdOwnPerusahaan());
             paramIndex += 1;
             if (search.isPresent()) {
-                stm.setString(paramIndex, search.get());
+                String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll(" +", "%") + "%";
+                stm.setString(paramIndex, processedSearch);
                 paramIndex += 1;
-                stm.setString(paramIndex, search.get());
+                stm.setString(paramIndex, processedSearch);
                 paramIndex += 1;
             }
             if (limit.isPresent()) {
@@ -151,9 +156,14 @@ public class Akun {
                 paramIndex += 1;
             }
             if (currentPage.isPresent()) {
-                stm.setInt(paramIndex, currentPage.getAsInt());
+                int limitVal = 50;
+                if (limit.isPresent()) {
+                    limitVal = limit.getAsInt();
+                }
+                stm.setInt(paramIndex, (currentPage.getAsInt() - 1) * limitVal);
                 paramIndex += 1;
             }
+            System.out.println(stm.toString());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Akun akun = new Akun(
@@ -186,9 +196,10 @@ public class Akun {
         }
         try {
             PreparedStatement stm = DB
-                    .prepareStatement("INSERT INTO akun (nama_akun, jenis_akun, posisi_akun) VALUES (?, ?, ?)");
-            stm.setString(1, this.namaAkun);
-            stm.setString(2, this.jenisAkun.toString());
+                    .prepareStatement("INSERT INTO akun (id_own_perusahaan, nama_akun, jenis_akun) VALUES (?, ?, ?)");
+            stm.setInt(1, this.idOwnPerusahaan);
+            stm.setString(2, this.namaAkun);
+            stm.setString(3, this.jenisAkun.toString());
             stm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -234,10 +245,10 @@ public class Akun {
         }
         try {
             PreparedStatement stm = DB
-                    .prepareStatement("UPDATE akun SET nama_akun = ?, jenis_akun = ?, posisi_akun = ? WHERE id = ?");
+                    .prepareStatement("UPDATE akun SET nama_akun = ?, jenis_akun = ? WHERE id = ?");
             stm.setString(1, this.namaAkun);
             stm.setString(2, this.jenisAkun.toString());
-            stm.setInt(4, this.id);
+            stm.setInt(3, this.id);
             stm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
