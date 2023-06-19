@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -161,36 +162,29 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <DatePicker prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Awal">
-                           <HBox.margin>
-                              <Insets bottom="2.0" right="34.0" top="2.0" />
-                           </HBox.margin>
-                        </DatePicker>
-                        <DatePicker prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Akhir">
-                           <HBox.margin>
-                              <Insets bottom="2.0" top="2.0" />
-                           </HBox.margin>
-                        </DatePicker>
-                        <Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefWidth="170.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Transaksi" textFill="WHITE" userData="./views/MainDesktop - TambahTransaksi.fxml">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="398.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="21.0" />
-                     </VBox.margin>
-                  </HBox>
                </children>
                <VBox.margin>
                   <Insets left="39.0" right="39.0" top="27.0" />
                </VBox.margin>
             </VBox>
+            <HBox maxWidth="1.7976931348623157E308">
+               <children>
+                  <AnchorPane HBox.hgrow="ALWAYS">
+                     <children>
+                        <DatePicker layoutY="2.4000000953674316" prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Awal" AnchorPane.leftAnchor="39.0" />
+                        <DatePicker layoutX="256.0" layoutY="3.0" prefHeight="30.0" prefWidth="160.0" promptText="Tanggal Akhir" />
+                        <Button layoutX="790.0" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefWidth="170.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Transaksi" textFill="WHITE" userData="./views/MainDesktop - TambahTransaksi.fxml" AnchorPane.rightAnchor="39.599999999999994">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="21.0" />
+               </VBox.margin>
+            </HBox>
             <TableView prefHeight="592.0" prefWidth="922.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="Tanggal" />

@@ -8,6 +8,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -159,16 +160,12 @@
             </Label>
             <HBox>
                <children>
-                  <ChoiceBox prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;">
-                     <HBox.margin>
-                        <Insets left="26.0" right="62.0" />
-                     </HBox.margin>
-                  </ChoiceBox>
-                  <ChoiceBox prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;">
-                     <HBox.margin>
-                        <Insets right="26.0" />
-                     </HBox.margin>
-                  </ChoiceBox>
+                  <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.leftAnchor="30.0" />
+                        <ChoiceBox layoutX="504.800012588501" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.rightAnchor="30.0" />
+                     </children>
+                  </AnchorPane>
                </children>
                <VBox.margin>
                   <Insets top="35.0" />

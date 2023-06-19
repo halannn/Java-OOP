@@ -162,7 +162,7 @@
             </Label>
             <HBox prefHeight="35.0" prefWidth="1000.0">
                <children>
-                  <AnchorPane style="-fx-background-color: white; -fx-background-radius: 20;">
+                  <AnchorPane style="-fx-background-color: white; -fx-background-radius: 20;" HBox.hgrow="ALWAYS">
                      <children>
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="5.0">
                            <image>
@@ -176,7 +176,7 @@
                         </TextField>
                      </children>
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" right="30.0" />
                      </HBox.margin>
                   </AnchorPane>
                </children>
@@ -186,12 +186,15 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1000.0">
                <children>
-                  <DatePicker maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Awal">
+                  <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                     <children>
+                        <DatePicker maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Awal" AnchorPane.leftAnchor="30.0" />
+                        <DatePicker layoutX="485.6000003814697" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Akhir" AnchorPane.rightAnchor="30.0" />
+                     </children>
                      <HBox.margin>
-                        <Insets left="30.0" right="35.0" />
+                        <Insets />
                      </HBox.margin>
-                  </DatePicker>
-                  <DatePicker maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="450.0" promptText="Tanggal Akhir" />
+                  </AnchorPane>
                </children>
                <VBox.margin>
                   <Insets top="24.0" />
