@@ -1,0 +1,31 @@
+.primary-btn{
+    -fx-background-color: #588157;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.primary-btn:disabled{
+    -fx-background-color: #fff;
+    -fx-text-fill: #588157;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.secondary-btn{
+    -fx-background-color: #fff;
+    -fx-text-fill: #588157;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.danger-btn{
+    -fx-background-color: #e7594f;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.table-view{
+    -fx-font-size: 16px;
+}
