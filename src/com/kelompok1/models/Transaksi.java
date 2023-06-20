@@ -2,13 +2,18 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 import com.kelompok1.DB;
 import com.kelompok1.types.PosisiAkun;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Transaksi {
     private int id;
+    private int idOwnPerusahaan;
     private LocalDate tanggal;
     private int idAkun;
     private PosisiAkun posisiAkun;
@@ -16,8 +21,10 @@ public class Transaksi {
     private String keterangan;
     private double nominal;
 
-    public Transaksi(LocalDate tanggal, int idAkun, PosisiAkun posisiAkun, int idKlien, String keterangan, double nominal) {
+    public Transaksi(LocalDate tanggal, int idAkun, PosisiAkun posisiAkun, int idKlien, String keterangan,
+            double nominal) {
         this.id = -1;
+        this.idOwnPerusahaan = -1;
         this.tanggal = tanggal;
         this.idAkun = idAkun;
         this.posisiAkun = posisiAkun;
@@ -28,6 +35,7 @@ public class Transaksi {
 
     public Transaksi(LocalDate tanggal, int idAkun, PosisiAkun posisiAkun, String keterangan, double nominal) {
         this.id = -1;
+        this.idOwnPerusahaan = -1;
         this.tanggal = tanggal;
         this.idAkun = idAkun;
         this.posisiAkun = posisiAkun;
@@ -42,6 +50,14 @@ public class Transaksi {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdOwnPerusahaan() {
+        return idOwnPerusahaan;
+    }
+
+    public void setIdOwnPerusahaan(int idOwnPerusahaan) {
+        this.idOwnPerusahaan = idOwnPerusahaan;
     }
 
     public LocalDate getTanggal() {
@@ -98,6 +114,166 @@ public class Transaksi {
         this.nominal = saldo;
     }
 
+    // public static ObservableList<Transaksi> getAll(QueryOptions options) {
+    // ObservableList<Transaksi> transaksiRes = FXCollections.observableArrayList();
+
+    // String stmString = "SELECT * FROM transaksi WHERE id_own_perusahaan = ?";
+    // Optional<String> search = options.getSearch();
+    // if (search.isPresent()) {
+    // stmString += " AND (keterangan LIKE ? OR DATE_FORMAT(tanggal, '%d-%m-%Y')
+    // LIKE ?)";
+    // }
+    // OptionalInt limit = options.getLimit();
+    // if (limit.isPresent()) {
+    // stmString += " LIMIT ?";
+    // } else {
+    // stmString += " LIMIT 50";
+    // }
+    // OptionalInt currentPage = options.getCurrentPage();
+    // if (currentPage.isPresent()) {
+    // stmString += " OFFSET ?";
+    // }
+
+    // try {
+    // DB.loadJDBCDriver();
+    // DB.connect();
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+
+    // try {
+    // PreparedStatement stm = DB.prepareStatement(stmString);
+    // int paramIndex = 1;
+    // stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+    // paramIndex += 1;
+    // if (search.isPresent()) {
+    // String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll("
+    // +", "%") + "%";
+    // stm.setString(paramIndex, processedSearch);
+    // paramIndex += 1;
+    // stm.setString(paramIndex, processedSearch);
+    // paramIndex += 1;
+    // }
+    // if (limit.isPresent()) {
+    // stm.setInt(paramIndex, Math.max(limit.getAsInt(), 0));
+    // paramIndex += 1;
+    // }
+    // if (currentPage.isPresent()) {
+    // int limitVal = 50;
+    // if (limit.isPresent()) {
+    // limitVal = Math.max(limit.getAsInt(), 0);
+    // }
+    // stm.setInt(paramIndex, Math.max((currentPage.getAsInt() - 1), 0) * limitVal);
+    // paramIndex += 1;
+    // }
+    // ResultSet rs = stm.executeQuery();
+    // while (rs.next()) {
+    // Transaksi transaksi = new Transaksi(rs.getDate("tanggal").toLocalDate(),
+    // rs.getInt("id_akun"),
+    // PosisiAkun.valueOf(rs.getString("posisi_akun")), rs.getInt("id_klien"),
+    // rs.getString("keterangan"), rs.getDouble("nominal"));
+    // transaksi.setId(rs.getInt("id"));
+    // transaksi.setIdOwnPerusahaan(rs.getInt("id_own_perusahaan"));
+    // transaksiRes.add(transaksi);
+    // }
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // } finally {
+    // try {
+    // DB.disconnect();
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // }
+    // }
+
+    // return transaksiRes;
+    // }
+
+    // public static int getAllCount(QueryOptions options) {
+    // int count = 0;
+
+    // String stmString = "SELECT COUNT(*) FROM transaksi WHERE id_own_perusahaan =
+    // ?";
+    // Optional<String> search = options.getSearch();
+    // if (search.isPresent()) {
+    // stmString += " AND (keterangan LIKE ? OR DATE_FORMAT(tanggal, '%d-%m-%Y')
+    // LIKE ?)";
+    // }
+
+    // try {
+    // DB.loadJDBCDriver();
+    // DB.connect();
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+
+    // try {
+    // PreparedStatement stm = DB.prepareStatement(stmString);
+    // int paramIndex = 1;
+    // stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+    // paramIndex += 1;
+    // if (search.isPresent()) {
+    // String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll("
+    // +", "%") + "%";
+    // stm.setString(paramIndex, processedSearch);
+    // paramIndex += 1;
+    // stm.setString(paramIndex, processedSearch);
+    // paramIndex += 1;
+    // }
+    // ResultSet rs = stm.executeQuery();
+    // while (rs.next()) {
+    // count = rs.getInt(1);
+    // }
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // } finally {
+    // try {
+    // DB.disconnect();
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // }
+    // }
+
+    // return count;
+    // }
+
+    public static ObservableList<Transaksi> getRanged(int idOwnPerusahaan, LocalDate from, LocalDate to) {
+        ObservableList<Transaksi> transaksiRes = FXCollections.observableArrayList();
+
+        String stmString = "SELECT * FROM transaksi WHERE id_own_perusahaan = ? AND tanggal BETWEEN ? AND ? ORDER BY tanggal ASC";
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement stm = DB.prepareStatement(stmString);
+            stm.setInt(1, idOwnPerusahaan);
+            stm.setDate(2, java.sql.Date.valueOf(from));
+            stm.setDate(3, java.sql.Date.valueOf(to));
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Transaksi transaksi = new Transaksi(rs.getDate("tanggal").toLocalDate(), rs.getInt("id_akun"),
+                        PosisiAkun.fromString(rs.getString("posisi_akun")), rs.getInt("id_klien"),
+                        rs.getString("keterangan"), rs.getDouble("nominal"));
+                transaksi.setId(rs.getInt("id"));
+                transaksi.setIdOwnPerusahaan(idOwnPerusahaan);
+                transaksiRes.add(transaksi);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return transaksiRes;
+    }
+
     // Method untuk menambahkan transaksi ke database
     public void tambah() {
         try {
@@ -108,17 +284,18 @@ public class Transaksi {
         }
         try {
             PreparedStatement stm = DB.prepareStatement(
-                    "INSERT INTO transaksi (tanggal, id_akun, posisi, id_klien, keterangan, nominal) VALUES (?, ?, ?, ?, ?)");
-            stm.setDate(1, java.sql.Date.valueOf(this.tanggal));
-            stm.setInt(2, this.idAkun);
-            stm.setString(3, this.posisiAkun.toString());
+                    "INSERT INTO transaksi (id_own_perusahaan, tanggal, id_akun, posisi_akun, id_klien, keterangan, nominal) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            stm.setInt(1, this.idOwnPerusahaan);
+            stm.setDate(2, java.sql.Date.valueOf(this.tanggal));
+            stm.setInt(3, this.idAkun);
+            stm.setString(4, this.posisiAkun.toString());
             if (this.idKlien == -1) {
-                stm.setNull(4, java.sql.Types.INTEGER);
+                stm.setNull(5, java.sql.Types.INTEGER);
             } else {
-                stm.setInt(4, this.idKlien);
+                stm.setInt(5, this.idKlien);
             }
-            stm.setString(5, this.keterangan);
-            stm.setDouble(6, this.nominal);
+            stm.setString(6, this.keterangan);
+            stm.setDouble(7, this.nominal);
             stm.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,7 +341,7 @@ public class Transaksi {
         }
         try {
             PreparedStatement stm = DB.prepareStatement(
-                    "UPDATE transaksi SET tanggal = ?, id_akun = ?, posisi = ?, id_klien = ?, keterangan = ?, nominal = ? WHERE id = ?");
+                    "UPDATE transaksi SET tanggal = ?, id_akun = ?, posisi_akun = ?, id_klien = ?, keterangan = ?, nominal = ? WHERE id = ?");
             stm.setDate(1, java.sql.Date.valueOf(this.tanggal));
             stm.setInt(2, this.idAkun);
             stm.setString(3, this.posisiAkun.toString());
@@ -189,7 +366,7 @@ public class Transaksi {
     }
 
     // Method untuk mengambil data akun berdasarkan idAkun
-    public Akun akun(){
+    public Akun akun() {
         try {
             DB.loadJDBCDriver();
             DB.connect();
@@ -202,7 +379,8 @@ public class Transaksi {
             ResultSet rs = stm.executeQuery();
             Akun relatedAkun = null;
             if (rs.next()) {
-                relatedAkun = new Akun(rs.getString("nama_akun"), Akun.getJenisAkunFromString(rs.getString("tipe_akun")));
+                relatedAkun = new Akun(rs.getString("nama_akun"),
+                        Akun.getJenisAkunFromString(rs.getString("jenis_akun")));
                 relatedAkun.setId(rs.getInt("id"));
             }
             return relatedAkun;
