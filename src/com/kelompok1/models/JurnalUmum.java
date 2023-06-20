@@ -3,6 +3,7 @@ package com.kelompok1.models;
 import java.util.List;
 
 import com.kelompok1.types.JurnalUmumItem;
+import com.kelompok1.types.PosisiAkun;
 import com.kelompok1.types.ILaporanItem;
 
 import javafx.collections.FXCollections;

@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.kelompok1.DB;
 import com.kelompok1.types.ILaporanItem;
+import com.kelompok1.types.PosisiAkun;
 
 import javafx.collections.ObservableList;
 
