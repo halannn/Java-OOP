@@ -2,21 +2,21 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
+import java.time.LocalDate;
 
 import com.kelompok1.DB;
 import com.kelompok1.types.PosisiAkun;
 
 public class Transaksi {
     private int id;
-    private Date tanggal;
+    private LocalDate tanggal;
     private int idAkun;
     private PosisiAkun posisiAkun;
     private int idKlien;
     private String keterangan;
     private double nominal;
 
-    public Transaksi(Date tanggal, int idAkun, PosisiAkun posisiAkun, int idKlien, String keterangan, double nominal) {
+    public Transaksi(LocalDate tanggal, int idAkun, PosisiAkun posisiAkun, int idKlien, String keterangan, double nominal) {
         this.id = -1;
         this.tanggal = tanggal;
         this.idAkun = idAkun;
@@ -26,7 +26,7 @@ public class Transaksi {
         this.nominal = nominal;
     }
 
-    public Transaksi(Date tanggal, int idAkun, PosisiAkun posisiAkun, String keterangan, double nominal) {
+    public Transaksi(LocalDate tanggal, int idAkun, PosisiAkun posisiAkun, String keterangan, double nominal) {
         this.id = -1;
         this.tanggal = tanggal;
         this.idAkun = idAkun;
@@ -44,11 +44,11 @@ public class Transaksi {
         this.id = id;
     }
 
-    public Date getTanggal() {
+    public LocalDate getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(Date tanggal) {
+    public void setTanggal(LocalDate tanggal) {
         this.tanggal = tanggal;
     }
 
@@ -109,7 +109,7 @@ public class Transaksi {
         try {
             PreparedStatement stm = DB.prepareStatement(
                     "INSERT INTO transaksi (tanggal, id_akun, posisi, id_klien, keterangan, nominal) VALUES (?, ?, ?, ?, ?)");
-            stm.setDate(1, new java.sql.Date(this.tanggal.getTime()));
+            stm.setDate(1, java.sql.Date.valueOf(this.tanggal));
             stm.setInt(2, this.idAkun);
             stm.setString(3, this.posisiAkun.toString());
             if (this.idKlien == -1) {
@@ -165,7 +165,7 @@ public class Transaksi {
         try {
             PreparedStatement stm = DB.prepareStatement(
                     "UPDATE transaksi SET tanggal = ?, id_akun = ?, posisi = ?, id_klien = ?, keterangan = ?, nominal = ? WHERE id = ?");
-            stm.setDate(1, new java.sql.Date(this.tanggal.getTime()));
+            stm.setDate(1, java.sql.Date.valueOf(this.tanggal));
             stm.setInt(2, this.idAkun);
             stm.setString(3, this.posisiAkun.toString());
             if (this.idKlien == -1) {

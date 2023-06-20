@@ -2,8 +2,8 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.kelompok1.DB;
@@ -22,7 +22,7 @@ public abstract class Laporan {
         this.data = new ArrayList<Transaksi>();
     }
 
-    public void queryData(Date from, Date to) {
+    public void queryData(LocalDate from, LocalDate to) {
         data.clear();
         try {
             DB.loadJDBCDriver();
@@ -32,11 +32,11 @@ public abstract class Laporan {
         }
         try {
             PreparedStatement stm = DB.prepareStatement("SELECT * FROM transaksi WHERE tanggal BETWEEN ? AND ?");
-            stm.setDate(1, new java.sql.Date(from.getTime()));
-            stm.setDate(2, new java.sql.Date(to.getTime()));
+            stm.setDate(1, java.sql.Date.valueOf(from));
+            stm.setDate(2, java.sql.Date.valueOf(to));
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Transaksi transaksi = new Transaksi(rs.getDate("tanggal"), rs.getInt("id_akun"),
+                Transaksi transaksi = new Transaksi(rs.getObject("tanggal", LocalDate.class), rs.getInt("id_akun"),
                         PosisiAkun.fromString(rs.getString("posisi")), rs.getInt("id_klien"),
                         rs.getString("keterangan"), rs.getDouble("nominal"));
                 transaksi.setId(rs.getInt("id"));

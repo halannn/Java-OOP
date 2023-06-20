@@ -2,7 +2,7 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.kelompok1.DB;
@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 
 public class BukuBesar extends Laporan {
 
-    private double hitungSaldoSebelum(Date tanggal) {
+    private double hitungSaldoSebelum(LocalDate tanggal) {
         try {
             DB.loadJDBCDriver();
             DB.connect();
@@ -25,7 +25,7 @@ public class BukuBesar extends Laporan {
         try {
             PreparedStatement stm = DB.prepareStatement(
                     "SELECT SUM(IF(transaksi.posisi='kredit',1,-1)*nominal) FROM transaksi WHERE tanggal < ?");
-            stm.setDate(1, new java.sql.Date(tanggal.getTime()));
+            stm.setDate(1, java.sql.Date.valueOf(tanggal));
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 return rs.getDouble(1);
