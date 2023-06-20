@@ -32,6 +32,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -241,6 +242,12 @@ public class RoleController extends BaseController implements Initializable {
     }
 
     public void tambahRole(ActionEvent event) {
+        if(namaRoleInput.getText().equals("")){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("Nama Role tidak boleh kosong");
+            alt.showAndWait();
+            return;
+        }
         Role role = new Role(namaRoleInput.getText(), 0);
         int permissionIndex = 0;
         int permissionsFlag = 0;
