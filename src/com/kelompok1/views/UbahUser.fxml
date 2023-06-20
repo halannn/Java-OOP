@@ -190,7 +190,7 @@
 						<Insets />
 					</VBox.margin>
 					<children>
-						<Label alignment="CENTER" contentDisplay="CENTER" text="Tambah User" textFill="#588157">
+						<Label alignment="CENTER" contentDisplay="CENTER" text="Ubah User" textFill="#588157">
 							<font>
 								<Font name="System Bold" size="24.0" />
 							</font>
@@ -265,11 +265,31 @@
 								<Insets left="174.0" right="174.5" top="51.0" />
 							</VBox.margin>
 						</HBox>
+						<HBox alignment="CENTER" prefHeight="45.38" prefWidth="615.26">
+							<children>
+								<Label prefHeight="24.2" prefWidth="116.99" text="Status :">
+									<font>
+										<Font size="20.0" />
+									</font>
+									<HBox.margin>
+										<Insets top="7.5" />
+									</HBox.margin>
+								</Label>
+                        <ComboBox fx:id="statusInput" prefHeight="45.38" prefWidth="504.0" promptText="-Status-">
+                           <HBox.margin>
+                              <Insets left="28.01" />
+                           </HBox.margin>
+                        </ComboBox>
+							</children>
+							<VBox.margin>
+								<Insets left="174.0" right="174.5" top="51.0" />
+							</VBox.margin>
+						</HBox>
 					</children>
 				</VBox>
 				<HBox alignment="CENTER">
 					<children>
-						<Button onAction="#tambahUser" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #588157;" text="Tambah User" textFill="WHITE">
+						<Button onAction="#ubahUser" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #588157;" text="Ubah User" textFill="WHITE">
 							<font>
 								<Font name="System Bold" size="20.0" />
 							</font>

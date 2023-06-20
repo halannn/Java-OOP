@@ -228,7 +228,7 @@
                               <Image url="@../resources/search.png" />
                            </image>
                         </ImageView>
-                        <TextField prefHeight="38.0" prefWidth="198.0" promptText="Search" style="-fx-background-color: none;" AnchorPane.leftAnchor="38.0">
+                        <TextField fx:id="searchInput" prefHeight="38.0" prefWidth="198.0" promptText="Search" style="-fx-background-color: none;" AnchorPane.leftAnchor="38.0">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -252,10 +252,12 @@
                   <Insets top="40.0" />
                </VBox.margin>
             </HBox>
-            <TableView editable="true" prefHeight="512.0" prefWidth="939.0" tableMenuButtonVisible="true">
+            <TableView fx:id="userTable" editable="true" prefHeight="512.0" prefWidth="939.0" tableMenuButtonVisible="true">
               <columns>
-                <TableColumn text="Username" />
-                <TableColumn prefWidth="75.0" text="Role" />
+                <TableColumn fx:id="usernameCol" text="Username" />
+                <TableColumn fx:id="roleCol" prefWidth="75.0" text="Role" />
+                <TableColumn fx:id="statusCol" prefWidth="75.0" text="Status" />
+                <TableColumn fx:id="aksiCol" prefWidth="75.0" text="Aksi" />
               </columns>
                <VBox.margin>
                   <Insets bottom="110.0" left="30.0" right="30.0" top="61.0" />
@@ -264,6 +266,19 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
+				<HBox alignment="TOP_RIGHT" prefWidth="200.0">
+					<VBox.margin>
+						<Insets left="30.0" right="30.0" top="30.0" />
+					</VBox.margin>
+					<children>
+						<Button fx:id="prevBtn" onAction="#prevPage" mnemonicParsing="false" styleClass="primary-btn" text="&lt;">
+							<HBox.margin>
+								<Insets right="16.0" />
+							</HBox.margin>
+						</Button>
+						<Button fx:id="nextBtn" onAction="#nextPage" mnemonicParsing="false" styleClass="primary-btn" text="&gt;" />
+					</children>
+				</HBox>
          </children></VBox>
    </children>
 </HBox>
