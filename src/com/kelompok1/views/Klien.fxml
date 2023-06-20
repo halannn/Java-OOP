@@ -16,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.KlienController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.KlienController">
 	<children>
 		<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
 			<content>
-				<VBox fx:id="PerubahanModal" maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
+				<VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
 					<children>
 						<Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Informasi Akutansi" wrappingWidth="156.97190856933594">
 							<font>
@@ -89,14 +89,6 @@
 							</VBox.margin>
 						</Label>
 						<Label fx:id="LabaRugi" onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/LabaRugi.fxml">
-							<font>
-								<Font size="14.0" />
-							</font>
-							<VBox.margin>
-								<Insets left="28.0" top="22.0" />
-							</VBox.margin>
-						</Label>
-						<Label fx:id="PerubahanModal" onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/PerubahanModal.fxml">
 							<font>
 								<Font size="14.0" />
 							</font>
@@ -237,7 +229,7 @@
 						</AnchorPane>
 						<AnchorPane prefHeight="35.0" prefWidth="191.0" HBox.hgrow="ALWAYS">
 							<children>
-								<Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: white; -fx-background-radius: 20;" text="+ Tambah Klien" textFill="#588157" userData="./views/TambahKlien.fxml" AnchorPane.rightAnchor="0.0">
+								<Button mnemonicParsing="false" onMouseClicked="#switchViewFromEvent" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #588157; -fx-background-radius: 20;" text="+ Tambah Klien" textFill="WHITE" userData="./views/TambahKlien.fxml" AnchorPane.rightAnchor="0.0">
 									<font>
 										<Font name="System Bold" size="16.0" />
 									</font>
@@ -262,7 +254,7 @@
                   <TableColumn fx:id="aksiCol" prefWidth="75.0" text="Aksi" />
 					</columns>
 					<VBox.margin>
-						<Insets bottom="110.0" left="30.0" right="30.0" top="61.0" />
+						<Insets left="30.0" right="30.0" top="61.0" />
 					</VBox.margin>
 					<columnResizePolicy>
 						<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -273,12 +265,12 @@
 						<Insets left="30.0" right="30.0" top="30.0" />
 					</VBox.margin>
 					<children>
-						<Button fx:id="prevBtn" onAction="#prevPage" mnemonicParsing="false" styleClass="primary-btn" text="&lt;">
+						<Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevPage" styleClass="primary-btn" text="&lt;">
 							<HBox.margin>
 								<Insets right="16.0" />
 							</HBox.margin>
 						</Button>
-						<Button fx:id="nextBtn" onAction="#nextPage" mnemonicParsing="false" styleClass="primary-btn" text="&gt;" />
+						<Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextPage" styleClass="primary-btn" text="&gt;" />
 					</children>
 				</HBox>
 			</children>

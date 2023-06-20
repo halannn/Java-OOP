@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 
 public class BukuBesar extends Laporan {
 
-    private double hitungSaldoSebelum(LocalDate tanggal) {
+    private double hitungSaldoSebelum(LocalDate tanggal, int idAkun) {
         try {
             DB.loadJDBCDriver();
             DB.connect();
@@ -24,8 +24,9 @@ public class BukuBesar extends Laporan {
         }
         try {
             PreparedStatement stm = DB.prepareStatement(
-                    "SELECT SUM(IF(transaksi.posisi='kredit',1,-1)*nominal) FROM transaksi WHERE tanggal < ?");
+                    "SELECT SUM(IF(transaksi.posisi_akun='kredit',-1,1)*nominal) FROM transaksi WHERE tanggal < ? AND id_akun = ?");
             stm.setDate(1, java.sql.Date.valueOf(tanggal));
+            stm.setInt(2, idAkun);
             ResultSet rs = stm.executeQuery();
             if (rs.next()) {
                 return rs.getDouble(1);
@@ -47,9 +48,8 @@ public class BukuBesar extends Laporan {
         ObservableList<ILaporanItem> processedData = FXCollections.observableArrayList();
 
         List<Transaksi> rawData = getData();
-        double saldo = 0;
+        rawData.sort((a, b) -> a.getIdAkun() != b.getIdAkun() ? 1 : 0);
 
-        int tridx = 0;
         for (Transaksi transaksi : rawData) {
             Akun akun = transaksi.akun();
             double debit = 0;
@@ -60,11 +60,7 @@ public class BukuBesar extends Laporan {
             if (transaksi.getPosisiAkun() == PosisiAkun.Kredit) {
                 kredit = transaksi.getNominal();
             }
-            if (tridx++ == 0) {
-                saldo = hitungSaldoSebelum(transaksi.getTanggal()) + debit - kredit;
-            } else {
-                saldo = saldo + debit - kredit;
-            }
+            Double saldo = hitungSaldoSebelum(transaksi.getTanggal(), transaksi.getIdAkun()) + debit - kredit;
             processedData.add(new BukuBesarItem(transaksi.getTanggal().toString(), akun.getNamaAkun(),
                     transaksi.getKeterangan(), debit, kredit, saldo));
         }

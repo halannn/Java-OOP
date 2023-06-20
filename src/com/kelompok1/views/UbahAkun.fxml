@@ -16,7 +16,7 @@
 	<children>
 		<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
 			<content>
-				<VBox fx:id="PerubahanModal" maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
+				<VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
 					<children>
 						<Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Informasi Akutansi" wrappingWidth="156.97190856933594">
 							<font>
@@ -92,14 +92,7 @@
 								<Insets left="28.0" top="22.0" />
 							</VBox.margin>
 						</Label>
-						<Label fx:id="PerubahanModal" onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/PerubahanModal.fxml">
-							<font>
-								<Font size="14.0" />
-							</font>
-							<VBox.margin>
-								<Insets left="28.0" top="22.0" />
-							</VBox.margin>
-						</Label>
+						
 						<Label fx:id="NeracaKeuangan" onMouseClicked="#switchViewFromEvent" text="Neraca Keuangan" textFill="WHITE" userData="./views/NeracaKeuangan.fxml">
 							<font>
 								<Font size="14.0" />

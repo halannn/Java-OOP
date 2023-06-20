@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.StackedBarChart?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.HomeController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.HomeController">
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefWidth="200.0" style="-fx-background-color: #588157;">
          <content>
-            <VBox fx:id="PerubahanModal" maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
+            <VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
                <children>
                   <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Informasi Akutansi" wrappingWidth="156.97190856933594">
                      <font>
@@ -87,14 +84,6 @@
                      </VBox.margin>
                   </Label>
                   <Label fx:id="LabaRugi" onMouseClicked="#switchViewFromEvent" text="Laba Rugi" textFill="WHITE" userData="./views/LabaRugi.fxml">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="28.0" top="22.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="PerubahanModal" onMouseClicked="#switchViewFromEvent" text="Perubahan Modal" textFill="WHITE" userData="./views/PerubahanModal.fxml">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -194,30 +183,26 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <HBox>
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" prefHeight="83.0" prefWidth="939.0" text="Selamat Datang">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="64.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <AnchorPane maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
-                     <children>
-                        <ChoiceBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.leftAnchor="30.0" />
-                        <ChoiceBox layoutX="504.800012588501" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="443.0" style="-fx-background-color: #588157;" AnchorPane.rightAnchor="30.0" />
-                     </children>
-                  </AnchorPane>
+                  <ImageView fitHeight="331.0" fitWidth="701.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/salary.png" />
+                     </image>
+                  </ImageView>
                </children>
                <VBox.margin>
-                  <Insets top="35.0" />
+                  <Insets top="24.0" />
                </VBox.margin>
             </HBox>
-            <StackedBarChart prefHeight="542.0" prefWidth="955.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-               <VBox.margin>
-                  <Insets bottom="44.0" left="26.0" right="26.0" top="44.0" />
-               </VBox.margin>
-            </StackedBarChart>
          </children></VBox>
    </children>
 </HBox>

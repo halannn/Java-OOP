@@ -1,32 +1,5 @@
 package com.kelompok1.types;
 
-enum KelompokNeraca {
-    Aktiva, Pasiva;
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case Aktiva:
-                return "aktiva";
-            case Pasiva:
-                return "pasiva";
-            default:
-                return "unknown";
-        }
-    }
-
-    public static KelompokNeraca fromString(String kelompokString) {
-        switch (kelompokString) {
-            case "aktiva":
-                return Aktiva;
-            case "pasiva":
-                return Pasiva;
-            default:
-                return null;
-        }
-    }
-}
-
 public class NeracaKeuanganItem implements ILaporanItem {
     private KelompokNeraca kelompok;
     private String namaAkun;
@@ -42,11 +15,23 @@ public class NeracaKeuanganItem implements ILaporanItem {
         return kelompok;
     }
 
+    public void setKelompok(KelompokNeraca kelompok) {
+        this.kelompok = kelompok;
+    }
+
     public String getNamaAkun() {
         return namaAkun;
     }
 
+    public void setNamaAkun(String namaAkun) {
+        this.namaAkun = namaAkun;
+    }
+
     public double getNominal() {
         return nominal;
+    }
+
+    public void setNominal(double nominal) {
+        this.nominal = nominal;
     }
 }

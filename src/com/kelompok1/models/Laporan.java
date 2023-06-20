@@ -31,13 +31,13 @@ public abstract class Laporan {
             e.printStackTrace();
         }
         try {
-            PreparedStatement stm = DB.prepareStatement("SELECT * FROM transaksi WHERE tanggal BETWEEN ? AND ?");
+            PreparedStatement stm = DB.prepareStatement("SELECT * FROM transaksi WHERE tanggal BETWEEN ? AND ? ORDER BY tanggal ASC");
             stm.setDate(1, java.sql.Date.valueOf(from));
             stm.setDate(2, java.sql.Date.valueOf(to));
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Transaksi transaksi = new Transaksi(rs.getObject("tanggal", LocalDate.class), rs.getInt("id_akun"),
-                        PosisiAkun.fromString(rs.getString("posisi")), rs.getInt("id_klien"),
+                        PosisiAkun.fromString(rs.getString("posisi_akun")), rs.getInt("id_klien"),
                         rs.getString("keterangan"), rs.getDouble("nominal"));
                 transaksi.setId(rs.getInt("id"));
                 data.add(transaksi);
