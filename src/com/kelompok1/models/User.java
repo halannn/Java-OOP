@@ -2,39 +2,18 @@ package com.kelompok1.models;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import com.kelompok1.DB;
-
-enum UserStatus {
-    Aktif,
-    Nonaktif;
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case Aktif:
-                return "aktif";
-            case Nonaktif:
-                return "nonaktif";
-            default:
-                return "unknown";
-        }
-    }
-
-    public static UserStatus fromString(String statusString) {
-        switch (statusString) {
-            case "aktif":
-                return Aktif;
-            case "nonaktif":
-                return Nonaktif;
-            default:
-                return null;
-        }
-    }
-}
+import com.kelompok1.types.QueryOptions;
+import com.kelompok1.types.UserStatus;
 
 public class User {
     private int id;
@@ -54,6 +33,9 @@ public class User {
         this.idOwnPerusahaan = idOwnPerusahaan;
         this.idRole = idRole;
         this.status = status;
+    }
+
+    public User() {
     }
 
     public int getId() {
@@ -164,6 +146,122 @@ public class User {
         return relatedRole;
     }
 
+    public static ObservableList<User> getAll(QueryOptions options){
+        ObservableList<User> userRes = FXCollections.observableArrayList();
+
+        String stmString = "SELECT * FROM user WHERE id_own_perusahaan = ?";
+        Optional<String> search = options.getSearch();
+        if (search.isPresent()) {
+            stmString += " AND (username LIKE ?)";
+        }
+        OptionalInt limit = options.getLimit();
+        if (limit.isPresent()) {
+            stmString += " LIMIT ?";
+        } else {
+            stmString += " LIMIT 50";
+        }
+        OptionalInt currentPage = options.getCurrentPage();
+        if (currentPage.isPresent()) {
+            stmString += " OFFSET ?";
+        }
+
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement stm = DB.prepareStatement(stmString);
+            int paramIndex = 1;
+            stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+            paramIndex += 1;
+            if (search.isPresent()) {
+                String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll(" +", "%") + "%";
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+            }
+            if (limit.isPresent()) {
+                stm.setInt(paramIndex, Math.max(limit.getAsInt(),0));
+                paramIndex += 1;
+            }
+            if (currentPage.isPresent()) {
+                int limitVal = 50;
+                if (limit.isPresent()) {
+                    limitVal = Math.max(limit.getAsInt(), 0);
+                }
+                stm.setInt(paramIndex, Math.max((currentPage.getAsInt() - 1), 0) * limitVal);
+                paramIndex += 1;
+            }
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                User user = new User(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("id_own_perusahaan"),
+                        rs.getInt("id_role"),
+                        UserStatus.fromString(rs.getString("status")));
+                user.setId(rs.getInt("id"));
+                user.setIdOwnPerusahaan(rs.getInt("id_own_perusahaan"));
+                userRes.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return userRes;
+    }
+
+    public static int getAllCount(QueryOptions options){
+        int count = 0;
+
+        String stmString = "SELECT COUNT(*) FROM user WHERE id_own_perusahaan = ?";
+        Optional<String> search = options.getSearch();
+        if (search.isPresent()) {
+            stmString += " AND (username LIKE ?)";
+        }
+
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            PreparedStatement stm = DB.prepareStatement(stmString);
+            int paramIndex = 1;
+            stm.setInt(paramIndex, options.getIdOwnPerusahaan());
+            paramIndex += 1;
+            if (search.isPresent()) {
+                String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll(" +", "%") + "%";
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+            }
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return count;
+    }
+
     public static User getByUsername(String username) {
         try {
             DB.loadJDBCDriver();
@@ -191,6 +289,90 @@ public class User {
             }
         }
         return user;
+    }
+
+    // Method untuk menambahkan user baru ke database
+    public void tambah() {
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            PreparedStatement stm = DB
+                    .prepareStatement("INSERT INTO user (id_own_perusahaan, username, password, id_role, status) VALUES (?, ?, ?, ?, ?)");
+            stm.setInt(1, this.idOwnPerusahaan);
+            stm.setString(2, this.username);
+            stm.setString(3, this.hashedPassword);
+            stm.setInt(4, this.idRole);
+            stm.setString(5, this.status.toString());
+            stm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Method untuk menghapus user dari database
+    public void hapus() {
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            PreparedStatement stm = DB.prepareStatement("DELETE FROM user WHERE id = ?");
+            stm.setInt(1, this.id);
+            stm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Method untuk mengubah user di database
+    public void ubah() {
+        try {
+            DB.loadJDBCDriver();
+            DB.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            PreparedStatement stm = DB
+                    .prepareStatement("UPDATE user SET username = ?, password = ?, id_role = ?, status = ? WHERE id = ?");
+            stm.setString(1, this.username);
+            stm.setString(2, this.hashedPassword);
+            stm.setInt(3, this.idRole);
+            stm.setString(4, this.status.toString());
+            stm.setInt(5, this.id);
+            stm.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                DB.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String hashPassword(String password){
+        char[] passwordChars = password.toCharArray();
+        return argon2.hash(10, 65536, 1, passwordChars);
     }
 
     public boolean verifyPassword(String password) {
