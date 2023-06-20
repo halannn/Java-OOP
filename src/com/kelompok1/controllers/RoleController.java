@@ -128,7 +128,9 @@ public class RoleController extends BaseController implements Initializable {
                             @Override
                             protected void updateItem(Void item, boolean empty) {
                                 super.updateItem(item, empty);
-                                if (!empty) {
+                                if (empty) {
+                                    setGraphic(null);
+                                } else {
                                     setGraphic(actionWrapper);
                                 }
                             }
@@ -242,7 +244,7 @@ public class RoleController extends BaseController implements Initializable {
     }
 
     public void tambahRole(ActionEvent event) {
-        if(namaRoleInput.getText().equals("")){
+        if (namaRoleInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Nama Role tidak boleh kosong");
             alt.showAndWait();
