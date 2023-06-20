@@ -193,6 +193,14 @@ public class Klien {
                 String processedSearch = "%" + search.get().replace("%", "\\%").replaceAll(" +", "%") + "%";
                 stm.setString(paramIndex, processedSearch);
                 paramIndex += 1;
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
+                stm.setString(paramIndex, processedSearch);
+                paramIndex += 1;
             }
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
