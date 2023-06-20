@@ -76,6 +76,7 @@ ON UPDATE CASCADE;
 CREATE TABLE `pbo_database`.`klien` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_own_perusahaan` INT NOT NULL,
+  `nama` VARCHAR(255) NOT NULL,
   `no_telp` VARCHAR(20) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `perusahaan_asal` VARCHAR(255) NOT NULL,
