@@ -190,7 +190,7 @@
 						<Insets left="177.0" right="608.0" />
 					</VBox.margin>
 					<children>
-						<Label text="Tambah Transaksi " textFill="#588157">
+						<Label text="Ubah Transaksi " textFill="#588157">
 							<font>
 								<Font name="System Bold" size="24.0" />
 							</font>
@@ -329,7 +329,7 @@
 						<Insets left="625.0" right="175.0" />
 					</VBox.margin>
 					<children>
-						<Button onAction="#tambahTransaksi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #588157;" text="+ Tambah " textFill="WHITE">
+						<Button onAction="#ubahTransaksi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #588157;" text="+ Ubah " textFill="WHITE">
 							<font>
 								<Font name="System Bold" size="20.0" />
 							</font>
