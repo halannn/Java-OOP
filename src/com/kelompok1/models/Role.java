@@ -185,7 +185,6 @@ public class Role {
             stm.setString(2, this.namaRole);
             stm.setInt(3, this.permissionsFlag);
             stm.executeUpdate();
-            System.out.println(stm.toString());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
