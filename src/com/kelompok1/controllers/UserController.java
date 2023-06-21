@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import com.kelompok1.models.Role;
 import com.kelompok1.models.User;
+import com.kelompok1.types.Permissions;
 import com.kelompok1.types.QueryOptions;
 import com.kelompok1.types.UserStatus;
 
@@ -357,6 +358,12 @@ public class UserController extends BaseController implements Initializable {
     }
 
     public void hapusUser(User selectedUser) {
+        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_USER) == 0){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("Anda tidak memiliki akses untuk menghapus user");
+            alt.showAndWait();
+            return;
+        }
         selectedUser.hapus();
         refresh();
     }

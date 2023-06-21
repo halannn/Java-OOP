@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import com.kelompok1.models.Akun;
 import com.kelompok1.models.User;
 import com.kelompok1.types.JenisAkun;
+import com.kelompok1.types.Permissions;
 import com.kelompok1.types.QueryOptions;
 
 import javafx.beans.property.ObjectProperty;
@@ -271,6 +272,12 @@ public class AkunController extends BaseController implements Initializable {
     }
 
     public void hapusAkun(Akun selectedAkun) {
+        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_AKUN) == 0) {
+            Alert alt = new Alert(Alert.AlertType.ERROR);
+            alt.setContentText("Anda tidak memiliki akses untuk menghapus akun");
+            alt.showAndWait();
+            return;
+        }
         selectedAkun.hapus();
         refresh();
     }

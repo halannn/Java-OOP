@@ -12,6 +12,7 @@ import com.kelompok1.models.Akun;
 import com.kelompok1.models.Klien;
 import com.kelompok1.models.Transaksi;
 import com.kelompok1.models.User;
+import com.kelompok1.types.Permissions;
 import com.kelompok1.types.PosisiAkun;
 import com.kelompok1.types.QueryOptions;
 
@@ -492,6 +493,12 @@ public class TransaksiController extends BaseController implements Initializable
     }
 
     public void hapusTransaksi(Transaksi selectedTransaksi) {
+        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_TRANSAKSI) == 0){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("Anda tidak memiliki akses untuk menghapus transaksi");
+            alt.showAndWait();
+            return;
+        }
         selectedTransaksi.hapus();
         refresh();
     }

@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import com.kelompok1.models.Klien;
 import com.kelompok1.models.User;
+import com.kelompok1.types.Permissions;
 import com.kelompok1.types.QueryOptions;
 
 import javafx.beans.property.ObjectProperty;
@@ -325,6 +326,12 @@ public class KlienController extends BaseController implements Initializable {
     }
 
     public void hapusKlien(Klien selectedKlien) {
+        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_KLIEN) == 0){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("Anda tidak memiliki akses untuk menghapus klien");
+            alt.showAndWait();
+            return;
+        }
         selectedKlien.hapus();
         refresh();
     }

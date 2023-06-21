@@ -305,6 +305,12 @@ public class RoleController extends BaseController implements Initializable {
     }
 
     public void hapusRole(Role selectedRole) {
+        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_ROLE) == 0){
+            Alert alt = new Alert(AlertType.ERROR);
+            alt.setContentText("Anda tidak memiliki akses untuk menghapus role");
+            alt.showAndWait();
+            return;
+        }
         selectedRole.hapus();
         refresh();
     }
