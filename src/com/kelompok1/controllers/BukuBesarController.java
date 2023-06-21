@@ -14,14 +14,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
-public class BukuBesarController extends BaseController implements Initializable {
+public class BukuBesarController extends BaseController {
     
 
     @FXML
@@ -56,8 +57,34 @@ public class BukuBesarController extends BaseController implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         tanggalCol.setCellValueFactory(new PropertyValueFactory<BukuBesarItem,String>("tanggal"));
         akunCol.setCellValueFactory(new PropertyValueFactory<BukuBesarItem,String>("namaAkun"));
+        akunCol.setCellFactory(new Callback<TableColumn<BukuBesarItem,String>,TableCell<BukuBesarItem,String>>() {
+            private String prevNamaAkun = null;
+            
+            @Override
+            public TableCell<BukuBesarItem, String> call(TableColumn<BukuBesarItem, String> arg0) {
+                return new TableCell<BukuBesarItem,String>(){
+
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if(!empty){
+                            if(item.equals(prevNamaAkun)){
+                                setText("");
+                            }else{
+                                setText(item);
+                            }
+                        }else{
+                            setText("");
+                        }
+                        prevNamaAkun = item;
+                    }
+                };
+            }
+            
+        });
         keteranganCol.setCellValueFactory(new PropertyValueFactory<BukuBesarItem,String>("keterangan"));
         debitCol.setCellValueFactory(new PropertyValueFactory<BukuBesarItem,Double>("debit"));
         kreditCol.setCellValueFactory(new PropertyValueFactory<BukuBesarItem,Double>("kredit"));

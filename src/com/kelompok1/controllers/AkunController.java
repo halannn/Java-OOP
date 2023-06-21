@@ -21,7 +21,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -33,7 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-public class AkunController extends BaseController implements Initializable {
+public class AkunController extends BaseController {
 
     /* Attributes for Akun Table page */
     @FXML
@@ -90,6 +89,7 @@ public class AkunController extends BaseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         try {
             String filename = (new File(location.toURI().getPath())).getName();
             if (filename.equals("Akun.fxml")) {

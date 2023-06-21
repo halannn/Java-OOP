@@ -20,7 +20,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
@@ -32,7 +31,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-public class KlienController extends BaseController implements Initializable {
+public class KlienController extends BaseController {
     /* Attributes for Klien Table page */
     @FXML
     private TextField searchInput;
@@ -52,7 +51,8 @@ public class KlienController extends BaseController implements Initializable {
     @FXML
     private TableColumn<Klien, String> perusahaanCol;
 
-    @FXML TableColumn<Klien, String> alamatCol;
+    @FXML
+    TableColumn<Klien, String> alamatCol;
 
     @FXML
     private TableColumn<Klien, Void> aksiCol;
@@ -101,7 +101,7 @@ public class KlienController extends BaseController implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-
+        super.initialize(location, resources);
         try {
             String filename = (new File(location.toURI().toString())).getName();
             if (filename.equals("Klien.fxml")) {
@@ -138,7 +138,7 @@ public class KlienController extends BaseController implements Initializable {
                                 super.updateItem(item, empty);
                                 if (empty) {
                                     setGraphic(null);
-                                }else{
+                                } else {
                                     setGraphic(actionWrapper);
                                 }
                             }
@@ -158,7 +158,7 @@ public class KlienController extends BaseController implements Initializable {
                     refresh();
                 });
             } else if (filename.equals("TambahKlien.fxml")) {
-                
+
             } else if (filename.equals("UbahKlien.fxml")) {
                 selectedKlien.addListener(new ChangeListener<Klien>() {
 
@@ -237,38 +237,39 @@ public class KlienController extends BaseController implements Initializable {
     }
 
     public void tambahKlien(ActionEvent event) {
-        if(namaInput.getText().equals("")){
+        if (namaInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Nama tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(noTelpInput.getText().equals("")){
+        if (noTelpInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("No Telp tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(emailInput.getText().equals("")){
+        if (emailInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Email tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(perusahaanInput.getText().equals("")){
+        if (perusahaanInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Perusahaan tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(alamatInput.getText().equals("")){
+        if (alamatInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Alamat tidak boleh kosong");
             alt.showAndWait();
             return;
         }
 
-        Klien klien = new Klien(namaInput.getText(), noTelpInput.getText(), emailInput.getText(), perusahaanInput.getText(), alamatInput.getText());
+        Klien klien = new Klien(namaInput.getText(), noTelpInput.getText(), emailInput.getText(),
+                perusahaanInput.getText(), alamatInput.getText());
         klien.setIdOwnPerusahaan(getUser().getIdOwnPerusahaan());
         klien.tambah();
 
@@ -280,31 +281,31 @@ public class KlienController extends BaseController implements Initializable {
     }
 
     public void ubahKlien(ActionEvent event) {
-        if(namaInput.getText().equals("")){
+        if (namaInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Nama tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(noTelpInput.getText().equals("")){
+        if (noTelpInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("No Telp tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(emailInput.getText().equals("")){
+        if (emailInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Email tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(perusahaanInput.getText().equals("")){
+        if (perusahaanInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Perusahaan tidak boleh kosong");
             alt.showAndWait();
             return;
         }
-        if(alamatInput.getText().equals("")){
+        if (alamatInput.getText().equals("")) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Alamat tidak boleh kosong");
             alt.showAndWait();
@@ -326,7 +327,7 @@ public class KlienController extends BaseController implements Initializable {
     }
 
     public void hapusKlien(Klien selectedKlien) {
-        if((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_KLIEN) == 0){
+        if ((getUser().role().getPermissionsFlag() & Permissions.MENGHAPUS_KLIEN) == 0) {
             Alert alt = new Alert(AlertType.ERROR);
             alt.setContentText("Anda tidak memiliki akses untuk menghapus klien");
             alt.showAndWait();

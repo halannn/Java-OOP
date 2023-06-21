@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="800.0" prefWidth="200.0" style="-fx-background-color: #588157;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kelompok1.controllers.BaseController">
+	<content>
+		<VBox maxWidth="1.7976931348623157E308" prefWidth="200.0" style="-fx-background-color: #588157;">
+			<children>
+				<Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistem Informasi Akutansi" wrappingWidth="156.97190856933594">
+					<font>
+						<Font name="System Bold" size="24.0" />
+					</font>
+					<VBox.margin>
+						<Insets left="28.0" top="22.0" />
+					</VBox.margin>
+				</Text>
+				<Label fx:id="homeMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Home" textFill="WHITE" userData="./views/Home.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets top="22.0" />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="transaksiMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Transaksi" textFill="WHITE" userData="./views/Transaksi.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="20.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label text="Laporan" textFill="WHITE">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets bottom="11.0" left="28.0" top="22.0" />
+					</VBox.margin>
+				</Label>
+				<Label fx:id="jurnalUmumMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Jurnal Umum" textFill="WHITE" userData="./views/JurnalUmum.fxml">
+					<font>
+						<Font size="14.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="28.0" top="11.0" />
+               </padding>
+				</Label>
+				<Label fx:id="trialBalanceMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Trial Balance" textFill="WHITE" userData="./views/TrialBalance.fxml">
+					<font>
+						<Font size="14.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="28.0" top="11.0" />
+               </padding>
+				</Label>
+				<Label fx:id="bukuBesarMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Buku Besar" textFill="WHITE" userData="./views/BukuBesar.fxml">
+					<font>
+						<Font size="14.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="28.0" top="11.0" />
+               </padding>
+				</Label>
+				<Label fx:id="labaRugiMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Laba Rugi" textFill="WHITE" userData="./views/LabaRugi.fxml">
+					<font>
+						<Font size="14.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="28.0" top="11.0" />
+               </padding>
+				</Label>
+				<Label fx:id="neracaKeuanganMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Neraca Keuangan" textFill="WHITE" userData="./views/NeracaKeuangan.fxml">
+					<font>
+						<Font size="14.0" />
+					</font>
+					<VBox.margin>
+						<Insets bottom="11.0" />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="28.0" top="11.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="akunMenu" accessibleRole="BUTTON" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Akun" textFill="WHITE" userData="./views/Akun.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="klienMenu" accessibleRole="BUTTON" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Klien" textFill="WHITE" userData="./views/Klien.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="userMenu" accessibleRole="BUTTON" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="User" textFill="WHITE" userData="./views/User.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="roleMenu" accessibleRole="BUTTON" maxWidth="1.7976931348623157E308" onMouseClicked="#switchViewFromEvent" styleClass="sidebarItem" text="Role" textFill="WHITE" userData="./views/Role.fxml">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+				<Separator prefWidth="200.0">
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+				</Separator>
+				<Label fx:id="keluarMenu" maxWidth="1.7976931348623157E308" onMouseClicked="#signOut" styleClass="sidebarItem" text="Keluar" textFill="WHITE">
+					<font>
+						<Font name="System Bold" size="16.0" />
+					</font>
+					<VBox.margin>
+						<Insets />
+					</VBox.margin>
+               <padding>
+                  <Insets bottom="22.0" left="28.0" top="22.0" />
+               </padding>
+				</Label>
+			</children>
+		</VBox>
+	</content>
+</ScrollPane>

@@ -48,7 +48,7 @@ public class BukuBesar extends Laporan {
         ObservableList<ILaporanItem> processedData = FXCollections.observableArrayList();
 
         List<Transaksi> rawData = getData();
-        rawData.sort((a, b) -> a.getIdAkun() != b.getIdAkun() ? 1 : 0);
+        rawData.sort((a, b) -> a.getIdAkun() - b.getIdAkun());
 
         for (Transaksi transaksi : rawData) {
             Akun akun = transaksi.akun();

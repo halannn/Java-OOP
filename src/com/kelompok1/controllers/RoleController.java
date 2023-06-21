@@ -23,7 +23,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -38,7 +37,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
-public class RoleController extends BaseController implements Initializable {
+public class RoleController extends BaseController  {
     /* Attributes for Role Table page */
     @FXML
     private TextField searchInput;
@@ -92,7 +91,7 @@ public class RoleController extends BaseController implements Initializable {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
-
+        super.initialize(location, resources);
         try {
             String filename = (new File(location.toURI().toString())).getName();
             if (filename.equals("Role.fxml")) {

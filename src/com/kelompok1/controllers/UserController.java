@@ -22,12 +22,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -39,7 +36,11 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
-public class UserController extends BaseController implements Initializable {
+public class UserController extends BaseController {
+
+    @FXML
+    private BaseController sidebarController;
+
     /* Attributes for Role Table page */
     @FXML
     private TextField searchInput;
@@ -99,8 +100,9 @@ public class UserController extends BaseController implements Initializable {
         return selectedUser;
     }
 
+    @FXML
     public void initialize(URL location, ResourceBundle resources) {
-
+        super.initialize(location, resources);
         try {
             String filename = (new File(location.toURI().toString())).getName();
             if (filename.equals("User.fxml")) {

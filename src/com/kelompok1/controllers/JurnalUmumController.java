@@ -14,14 +14,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class JurnalUmumController extends BaseController implements Initializable {
+public class JurnalUmumController extends BaseController {
 
     @FXML
     private Button goBtn;
@@ -52,6 +51,7 @@ public class JurnalUmumController extends BaseController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
         tanggalCol.setCellValueFactory(new PropertyValueFactory<JurnalUmumItem,String>("tanggal"));
         akunCol.setCellValueFactory(new PropertyValueFactory<JurnalUmumItem,String>("namaAkun"));
         keteranganCol.setCellValueFactory(new PropertyValueFactory<JurnalUmumItem,String>("keterangan"));

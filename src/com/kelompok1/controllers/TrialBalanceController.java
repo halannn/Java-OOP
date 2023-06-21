@@ -14,7 +14,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -22,7 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class TrialBalanceController extends BaseController implements Initializable {
+public class TrialBalanceController extends BaseController {
 
     @FXML
     private Button goBtn;
@@ -37,13 +36,13 @@ public class TrialBalanceController extends BaseController implements Initializa
     private TableView<TrialBalanceItem> trialBalanceTable;
 
     @FXML
-    private TableColumn<TrialBalanceItem,String> akunCol;
+    private TableColumn<TrialBalanceItem, String> akunCol;
 
     @FXML
-    private TableColumn<TrialBalanceItem,Double> debitCol;
+    private TableColumn<TrialBalanceItem, Double> debitCol;
 
     @FXML
-    private TableColumn<TrialBalanceItem,Double> kreditCol;
+    private TableColumn<TrialBalanceItem, Double> kreditCol;
 
     @FXML
     private Label debitTotal;
@@ -53,30 +52,31 @@ public class TrialBalanceController extends BaseController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        akunCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem,String>("namaAkun"));
-        debitCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem,Double>("debit"));
-        kreditCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem,Double>("kredit"));
+        super.initialize(location, resources);
+        akunCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem, String>("namaAkun"));
+        debitCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem, Double>("debit"));
+        kreditCol.setCellValueFactory(new PropertyValueFactory<TrialBalanceItem, Double>("kredit"));
 
         userProperty().addListener(new ChangeListener<User>() {
             @Override
-            public void changed(ObservableValue<? extends User> observable, User oldValue, User newValue) {                
-                if(newValue == null) {
+            public void changed(ObservableValue<? extends User> observable, User oldValue, User newValue) {
+                if (newValue == null) {
                     userProperty().removeListener(this);
                 }
                 refresh();
             }
         });
 
-        goBtn.setOnAction(e->{
+        goBtn.setOnAction(e -> {
             refresh();
         });
     }
 
-    public void refresh(){
-        if(fromInput.getValue()==null){
+    public void refresh() {
+        if (fromInput.getValue() == null) {
             fromInput.setValue(LocalDate.now());
         }
-        if(toInput.getValue()==null){
+        if (toInput.getValue() == null) {
             toInput.setValue(LocalDate.now());
         }
         TrialBalance tb = new TrialBalance();
@@ -85,14 +85,14 @@ public class TrialBalanceController extends BaseController implements Initializa
         ObservableList<TrialBalanceItem> data = FXCollections.observableArrayList();
         double debitTotalValue = 0;
         double kreditTotalValue = 0;
-        for(ILaporanItem item : dataUncast){
-            TrialBalanceItem castedItem = (TrialBalanceItem)item;
+        for (ILaporanItem item : dataUncast) {
+            TrialBalanceItem castedItem = (TrialBalanceItem) item;
             data.add(castedItem);
-            debitTotalValue+=castedItem.getDebit();
-            kreditTotalValue+=castedItem.getKredit();
+            debitTotalValue += castedItem.getDebit();
+            kreditTotalValue += castedItem.getKredit();
         }
         trialBalanceTable.setItems(data);
-        debitTotal.setText("Rp."+String.format("%.2f", debitTotalValue));
-        kreditTotal.setText("Rp."+String.format("%.2f", kreditTotalValue));
+        debitTotal.setText("Rp." + String.format("%.2f", debitTotalValue));
+        kreditTotal.setText("Rp." + String.format("%.2f", kreditTotalValue));
     }
 }

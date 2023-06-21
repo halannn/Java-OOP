@@ -15,15 +15,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class LabaRugiController extends BaseController implements Initializable {
-    
+public class LabaRugiController extends BaseController {
+
     @FXML
     private Button goBtn;
 
@@ -37,50 +36,51 @@ public class LabaRugiController extends BaseController implements Initializable 
     private TableView<LabaRugiItem> labaRugiTable;
 
     @FXML
-    private TableColumn<LabaRugiItem,KelompokLabaRugi> kelompokCol;
+    private TableColumn<LabaRugiItem, KelompokLabaRugi> kelompokCol;
 
     @FXML
-    private TableColumn<LabaRugiItem,String> akunCol;
+    private TableColumn<LabaRugiItem, String> akunCol;
 
     @FXML
-    private TableColumn<LabaRugiItem,Double> saldoCol;
+    private TableColumn<LabaRugiItem, Double> saldoCol;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        kelompokCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem,KelompokLabaRugi>("kelompok"));
-        akunCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem,String>("namaAkun"));
-        saldoCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem,Double>("nominal"));
+        super.initialize(location, resources);
+        kelompokCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem, KelompokLabaRugi>("kelompok"));
+        akunCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem, String>("namaAkun"));
+        saldoCol.setCellValueFactory(new PropertyValueFactory<LabaRugiItem, Double>("nominal"));
 
         userProperty().addListener(new ChangeListener<User>() {
             @Override
-            public void changed(ObservableValue<? extends User> observable, User oldValue, User newValue) {                
-                if(newValue == null) {
+            public void changed(ObservableValue<? extends User> observable, User oldValue, User newValue) {
+                if (newValue == null) {
                     userProperty().removeListener(this);
                 }
                 refresh();
             }
         });
 
-        goBtn.setOnAction(e->{
+        goBtn.setOnAction(e -> {
             refresh();
         });
     }
 
-    public void refresh(){
-        if(fromInput.getValue()==null){
+    public void refresh() {
+        if (fromInput.getValue() == null) {
             fromInput.setValue(LocalDate.now());
         }
-        if(toInput.getValue()==null){
+        if (toInput.getValue() == null) {
             toInput.setValue(LocalDate.now());
         }
         LabaRugi lr = new LabaRugi();
         lr.queryData(fromInput.getValue(), toInput.getValue());
         ObservableList<ILaporanItem> dataUncast = lr.processData();
         ObservableList<LabaRugiItem> data = FXCollections.observableArrayList();
-        for(ILaporanItem item : dataUncast){
-            data.add((LabaRugiItem)item);
+        for (ILaporanItem item : dataUncast) {
+            data.add((LabaRugiItem) item);
         }
         labaRugiTable.setItems(data);
     }
-    
+
 }
