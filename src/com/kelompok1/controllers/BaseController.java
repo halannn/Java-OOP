@@ -182,7 +182,7 @@ public class BaseController {
     }
 
     public void signOut() throws IOException {
-        user = null;
+        setUser(null);
         switchView("./views/Login.fxml");
     }
 
