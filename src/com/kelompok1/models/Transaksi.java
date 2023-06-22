@@ -414,7 +414,7 @@ public class Transaksi {
             Klien relatedKlien = null;
             if (rs.next()) {
                 relatedKlien = new Klien(rs.getString("nama"), rs.getString("no_telp"), rs.getString("email"),
-                        rs.getString("perusahaan"), rs.getString("alamat"));
+                        rs.getString("perusahaan_asal"), rs.getString("alamat"));
                 relatedKlien.setId(rs.getInt("id"));
             }
             return relatedKlien;
